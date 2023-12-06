@@ -9,7 +9,8 @@ public class Natural_Numbers_Without_Semicolon {
         System.out.print("Enter the number : ");
         int n = sc.nextInt();
 
-        for (int i = 1; i <= n; System.out.println(i++));
+        for (int i = 1; i <= n; System.out.println(i++))
+            ;
         sc.close();
     }
 }
