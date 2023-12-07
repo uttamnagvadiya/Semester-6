@@ -5,18 +5,18 @@
 
 Table Name :: Department
 -----------------------------
-DepartmentID		int				--			PK,
+DepartmentID		int		--		PK,
 DepartmentName		varchar(100)	Not Null	Unique
 
 *************************************************************
 
 Table Name :: Employee
 -----------------------------
-EmployeeID			int				--			PK,
-FirstName			varchar(50)		Not Null,
-LastName			varchar(50)		Not Null,
-Age					int				Not Null,
-DepartmentID		int				Null		FK
+EmployeeID		int		--		PK,
+FirstName		varchar(50)	Not Null,
+LastName		varchar(50)	Not Null,
+Age			int		Not Null,
+DepartmentID		int		Null		FK
 */
 
 
