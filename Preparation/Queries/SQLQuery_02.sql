@@ -1,6 +1,6 @@
 /*
 =============================================================================
-							Schemas
+				Schemas
 =============================================================================
 
 Table Name :: Department
@@ -224,7 +224,7 @@ DEALLOCATE EmployeeCursor
 
 
 -- 13. Create a trigger that automatically assigns a default department when a new employee is inserted
---     with a ‘NULL’ department.
+--     with a â€˜NULLâ€™ department.
 
 
 -- 14. Create a cursor that updates the salaries of employees based on their age. For example, increase the
