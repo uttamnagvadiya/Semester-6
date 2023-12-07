@@ -14,5 +14,6 @@ public class Replace_Zeros_with_Ones{
         }
 
         System.out.println(result);
+        sc.close();
     }
 }
