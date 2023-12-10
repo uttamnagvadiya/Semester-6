@@ -1,22 +1,22 @@
 /*
 =============================================================================
-							Schemas
+				Schemas
 =============================================================================
 
 Table Name :: Department
 -----------------------------
-DepartmentID		int				--			PK,
+DepartmentID		int		--		PK,
 DepartmentName		varchar(100)	Not Null	Unique
 
 *************************************************************
 
 Table Name :: Employee
 -----------------------------
-EmployeeID			int				--			PK,
-FirstName			varchar(50)		Not Null,
-LastName			varchar(50)		Not Null,
-Age					int				Not Null,
-DepartmentID		int				Null		FK
+EmployeeID		int		--		PK,
+FirstName		varchar(50)	Not Null,
+LastName		varchar(50)	Not Null,
+Age			int		Not Null,
+DepartmentID		int		Null		FK
 */
 
 
@@ -224,7 +224,7 @@ DEALLOCATE EmployeeCursor
 
 
 -- 13. Create a trigger that automatically assigns a default department when a new employee is inserted
---     with a ‘NULL’ department.
+--     with a â€˜NULLâ€™ department.
 
 
 -- 14. Create a cursor that updates the salaries of employees based on their age. For example, increase the
