@@ -5,13 +5,13 @@ Write a program to print following pattern
 11 12 13 14 15
 20 19 18 17 16
 21 22 23 24 25
- 
+        
 (row(i)%2 == 0) ? -- : ++
 */
 
 import java.util.Scanner;
 
-public class Pattern {
+public class Pattern01 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -36,7 +36,6 @@ public class Pattern {
             }
             System.out.println();
         }
-        
         sc.close();
     }
 }
