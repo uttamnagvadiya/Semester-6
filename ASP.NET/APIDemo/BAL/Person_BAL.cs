@@ -56,11 +56,11 @@ namespace APIDemo.BAL
         #endregion
 
         #region Method : INSERT RECORD ...
-        public int PR_INSERT_RECORD_PERSON(string PersonName, string Email, string Phone)
+        public int PR_INSERT_RECORD_PERSON(PersonModel personModel)
         {
             try
             {
-                return person_DAL.PR_INSERT_RECORD_PERSON(PersonName, Email, Phone);
+                return person_DAL.PR_INSERT_RECORD_PERSON(personModel);
             }
             catch (Exception ex)
             {
@@ -70,11 +70,11 @@ namespace APIDemo.BAL
         #endregion
 
         #region Method : UPDATE RECORD BY ID ...
-        public int PR_UPDATE_RECORD_BY_PK_PERSON(int PersonID, string PersonName, string Email, string Phone)
+        public int PR_UPDATE_RECORD_BY_PK_PERSON(PersonModel personModel)
         {
             try
             {
-                return person_DAL.PR_UPDATE_RECORD_BY_PK_PERSON(PersonID, PersonName, Email, Phone);
+                return person_DAL.PR_UPDATE_RECORD_BY_PK_PERSON(personModel);
             }
             catch (Exception ex)
             {

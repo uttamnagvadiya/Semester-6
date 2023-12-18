@@ -81,15 +81,15 @@ namespace APIDemo.DAL
         #endregion
 
         #region Method : INSERT RECORD ...
-        public int PR_INSERT_RECORD_PERSON(string PersonName, string Email, string Phone)
+        public int PR_INSERT_RECORD_PERSON(PersonModel personModel)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(connectionString);
                 DbCommand dbCommand = sqlDB.GetStoredProcCommand("API_PERSON_INSERT_RECORD");
-                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, PersonName);
-                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, Email);
-                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, Phone);
+                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, personModel.PersonName);
+                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, personModel.Email);
+                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, personModel.Phone);
 
                 return sqlDB.ExecuteNonQuery(dbCommand);
             }
@@ -101,16 +101,16 @@ namespace APIDemo.DAL
         #endregion
 
         #region Method : UPDATE RECORD BY ID ...
-        public int PR_UPDATE_RECORD_BY_PK_PERSON(int PersonID, string PersonName, string Email, string Phone)
+        public int PR_UPDATE_RECORD_BY_PK_PERSON(PersonModel personModel)
         {
             try
             {
                 SqlDatabase sqlDB = new SqlDatabase(connectionString);
                 DbCommand dbCommand = sqlDB.GetStoredProcCommand("API_PERSON_UPDATE_RECORD_BY_PK");
-                sqlDB.AddInParameter(dbCommand, "@PersonID", SqlDbType.Int, PersonID);
-                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, PersonName);
-                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, Email);
-                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, Phone);
+                sqlDB.AddInParameter(dbCommand, "@PersonID", SqlDbType.Int, personModel.PersonID);
+                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, personModel.PersonName);
+                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, personModel.Email);
+                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, personModel.Phone);
 
                 return sqlDB.ExecuteNonQuery(dbCommand);
             }

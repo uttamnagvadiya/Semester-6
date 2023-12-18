@@ -70,9 +70,9 @@ namespace APIDemo.Controllers
 
         #region INSERT RECORD ...
         [HttpPost]
-        public IActionResult Post(string PersonName, string Email, string Phone)
+        public IActionResult Post([FromBody] PersonModel personModel)
         {
-            if (person_BAL.PR_INSERT_RECORD_PERSON(PersonName, Email, Phone) > 0)
+            if (person_BAL.PR_INSERT_RECORD_PERSON(personModel) > 0)
             {
                 return Ok("Record inserted successfully!");
             }
@@ -81,10 +81,10 @@ namespace APIDemo.Controllers
         #endregion
 
         #region UPDATE RECORD BY ID ...
-        [HttpPut]
-        public IActionResult Put(int PersonID, string PersonName, string Email, string Phone)
+        [HttpPut("{PersonID}")]
+        public IActionResult Put([FromBody] PersonModel personModel)
         {
-            if (person_BAL.PR_UPDATE_RECORD_BY_PK_PERSON(PersonID, PersonName, Email, Phone) > 0)
+            if (person_BAL.PR_UPDATE_RECORD_BY_PK_PERSON(personModel) > 0)
             {
                 return Ok("Record updated successfully!");
             }
