@@ -55,5 +55,41 @@ namespace APIDemo.Controllers
             }
         }
         #endregion
+
+        #region DELETE RECORD BY ID ...
+        [HttpDelete]
+        public IActionResult Delete(int PersonID)
+        {
+            if (person_BAL.PR_DELETE_BY_PK_PERSON(PersonID) > 0)
+            {
+                return Ok("Record Deleted Successfully!");
+            }
+            return NotFound("Record not deleted!");
+        }
+        #endregion
+
+        #region INSERT RECORD ...
+        [HttpPost]
+        public IActionResult Post(string PersonName, string Email, string Phone)
+        {
+            if (person_BAL.PR_INSERT_RECORD_PERSON(PersonName, Email, Phone) > 0)
+            {
+                return Ok("Record inserted successfully!");
+            }
+            return NotFound("Record not inserted!");
+        }
+        #endregion
+
+        #region UPDATE RECORD BY ID ...
+        [HttpPut]
+        public IActionResult Put(int PersonID, string PersonName, string Email, string Phone)
+        {
+            if (person_BAL.PR_UPDATE_RECORD_BY_PK_PERSON(PersonID, PersonName, Email, Phone) > 0)
+            {
+                return Ok("Record updated successfully!");
+            }
+            return NotFound("Record not updated!");
+        }
+        #endregion
     }
 }

@@ -47,6 +47,7 @@ namespace APIDemo.DAL
                 PersonModel personModel = new PersonModel();
                 using (IDataReader reader = sqlDB.ExecuteReader(dbCommand))
                 {
+                    reader.Read();
                     personModel.PersonID = Convert.ToInt32(reader["PersonID"].ToString());
                     personModel.PersonName = reader["PersonName"].ToString();
                     personModel.Email = reader["Email"].ToString();
@@ -57,6 +58,65 @@ namespace APIDemo.DAL
             catch (Exception ex)
             {
                 return null;
+            }
+        }
+        #endregion
+
+        #region Method : DELETE RECORD BY ID ...
+        public int PR_DELETE_BY_PK_PERSON (int PersonID)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(connectionString);
+                DbCommand dbCommand = sqlDB.GetStoredProcCommand("API_PERSON_DELETE_RECORD_BY_PK");
+                sqlDB.AddInParameter(dbCommand, "@PersonID", SqlDbType.Int, PersonID);
+
+                return sqlDB.ExecuteNonQuery(dbCommand);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Method : INSERT RECORD ...
+        public int PR_INSERT_RECORD_PERSON(string PersonName, string Email, string Phone)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(connectionString);
+                DbCommand dbCommand = sqlDB.GetStoredProcCommand("API_PERSON_INSERT_RECORD");
+                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, PersonName);
+                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, Email);
+                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, Phone);
+
+                return sqlDB.ExecuteNonQuery(dbCommand);
+            }
+            catch (Exception ex)
+            {
+                return 0;
+            }
+        }
+        #endregion
+
+        #region Method : UPDATE RECORD BY ID ...
+        public int PR_UPDATE_RECORD_BY_PK_PERSON(int PersonID, string PersonName, string Email, string Phone)
+        {
+            try
+            {
+                SqlDatabase sqlDB = new SqlDatabase(connectionString);
+                DbCommand dbCommand = sqlDB.GetStoredProcCommand("API_PERSON_UPDATE_RECORD_BY_PK");
+                sqlDB.AddInParameter(dbCommand, "@PersonID", SqlDbType.Int, PersonID);
+                sqlDB.AddInParameter(dbCommand, "@PersonName", SqlDbType.VarChar, PersonName);
+                sqlDB.AddInParameter(dbCommand, "@Email", SqlDbType.VarChar, Email);
+                sqlDB.AddInParameter(dbCommand, "@Phone", SqlDbType.VarChar, Phone);
+
+                return sqlDB.ExecuteNonQuery(dbCommand);
+            }
+            catch (Exception ex)
+            {
+                return 0;
             }
         }
         #endregion
