@@ -72,9 +72,12 @@ namespace APIDemo.Controllers
         [HttpPost]
         public IActionResult Post([FromBody] PersonModel personModel)
         {
-            if (person_BAL.PR_INSERT_RECORD_PERSON(personModel) > 0)
+            if (ModelState.IsValid)
             {
-                return Ok("Record inserted successfully!");
+                if (person_BAL.PR_INSERT_RECORD_PERSON(personModel) > 0)
+                {
+                    return Ok("Record inserted successfully!");
+                }
             }
             return NotFound("Record not inserted!");
         }
@@ -84,9 +87,12 @@ namespace APIDemo.Controllers
         [HttpPut("{PersonID}")]
         public IActionResult Put([FromBody] PersonModel personModel)
         {
-            if (person_BAL.PR_UPDATE_RECORD_BY_PK_PERSON(personModel) > 0)
+            if (ModelState.IsValid)
             {
-                return Ok("Record updated successfully!");
+                if (person_BAL.PR_UPDATE_RECORD_BY_PK_PERSON(personModel) > 0)
+                {
+                    return Ok("Record updated successfully!");
+                }
             }
             return NotFound("Record not updated!");
         }
