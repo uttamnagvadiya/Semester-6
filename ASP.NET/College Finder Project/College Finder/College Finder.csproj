@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>College_Finder</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\" />
+    <Folder Include="Areas\MST_User_Registration\Controllers\" />
+    <Folder Include="Areas\MST_User_Registration\Data\" />
+    <Folder Include="Areas\MST_User_Registration\Models\" />
+    <Folder Include="Areas\MST_User_Registration\Views\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+  </ItemGroup>
+
+</Project>
