@@ -1,8 +1,187 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    Layout = "_Layout";
 }
+<div class="col-lg-12">
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div class="carousel-frame d-flex justify-content-center align-items-center">
+        <div class="img-opacity"></div>
+        <div class="carousel-slide">
+            <img src="~/img/IIT(Madras)_1.jpg" />
+            <img src="~/img/IIT(Delhi)_1.jpg" />
+            <img src="~/img/IIT(Bombay)_1.jpg" />
+            <img src="~/img/IIT(Khragpur)_1.jpg" />
+            <img src="~/img/IIT(Kanpur)_1.jpg" />
+        </div>
+        <i class="carousel-prev fas fa-chevron-left"></i>
+        <i class="carousel-next fas fa-chevron-right"></i>
+        <ol class="carousel-dots p-0">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ol>
+        <div class="carousel-content">
+            <p class="" style="opacity: 0.8;">Find Your Perfect</p>
+            <div class="carousel-title">
+                <h1>University</h1>
+                <h1>University</h1>
+            </div>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="container clg-select-steps">
+            <div class="row justify-content-center">
+                <div class="col-md-3 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-2 d-flex justify-content-center">
+                            <img src="~/icons/explore.png" class="g-icon text-danger" />
+                        </div>
+                        <div class="guide-content col-md-10 col-10">
+                            <div class="step-title fw-bold ">Explore</div>
+                            <p>You can browse 25 to 30 universities from all over the world.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-2 d-flex justify-content-center">
+                            <img src="~/icons/compare.png" class="g-icon text-danger" />
+                        </div>
+                        <div class="guide-content col-md-10 col-10">
+                            <div class="step-title fw-bold">Compare</div>
+                            <p>Make a wishlist of your favourite universities check your fit with them and read what other students are saying.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-2 d-flex justify-content-center">
+                            <img src="~/icons/decide.png" class="g-icon text-danger" />
+                        </div>
+                        <div class="guide-content col-md-10 col-10">
+                            <div class="step-title fw-bold">Decide</div>
+                            <p>Now that you have your top universities shortlisted, you can pick the ones that fit you the best.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12">
+                    <div class="row justify-content-center">
+                        <div class="col-md-12 col-2 d-flex justify-content-center">
+                            <img src="~/icons/apply.png" class="g-icon text-danger" />
+                        </div>
+                        <div class="guide-content col-md-10 col-10">
+                            <div class="step-title fw-bold">Apply</div>
+                            <p>When you feel confident about your university choice, you can apply.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="streams mb-5">
+            <div class="col-12">
+                <div class="card browse-streams overflow-auto">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title fs-4 mb-3 fw-bolder"># Browse by Streams</h5>
+                        <div class="row justify-content-center">
+                            <div class="stream-card col-2 m-3">
+                                <div class="row justify-content-center">
+                                    <div class="col-12"></div>
+                                    <div class="col-12"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="container">
+        <div class="top-colleges">
+            <div class="col-12">
+                <div class="card top-clgs overflow-auto">
+                    <div class="card-body pb-0">
+                        <h5 class="card-title fs-4 mb-3 fw-bolder"># Top 10 Colleges</h5>
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr class="table-title-row">
+                                    <th scope="col" class="text-center border">Rank</th>
+                                    <th scope="col" class="border">College</th>
+                                    <th scope="col" class="text-center border">Ranking</th>
+                                    <th scope="col" class="text-center border">Cutoff</th>
+                                    <th scope="col" class="text-center border">Fees</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" class="text-center"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/300px-IIT_Madras_Logo.svg.png" alt=""></th>
+                                    <td><a href="#" class="text-dark fs-6 text-decoration-none">IIT Madras - Indian Institute of Technology - [IITM]</a></td>
+                                    <td class="text-center">$64</td>
+                                    <td class="text-center">124</td>
+                                    <td class="text-center">$5,828</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

@@ -1,4 +1,5 @@
-﻿using College_Finder.Models;
+﻿using College_Finder.BAL;
+using College_Finder.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 
@@ -14,11 +15,6 @@ namespace College_Finder.Controllers
         }
 
         public IActionResult Index()
-        {
-            return View();
-        }
-
-        public IActionResult Privacy()
         {
             return View();
         }

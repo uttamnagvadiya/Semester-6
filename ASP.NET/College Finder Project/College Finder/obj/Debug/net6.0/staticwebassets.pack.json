@@ -5,16 +5,68 @@
       "PackagePath": "staticwebassets\\College Finder.bundle.scp.css"
     },
     {
-      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\css\\site.css",
-      "PackagePath": "staticwebassets\\css\\site.css"
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\css\\style.css",
+      "PackagePath": "staticwebassets\\css\\style.css"
     },
     {
       "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\favicon.ico",
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
-      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\js\\site.js",
-      "PackagePath": "staticwebassets\\js\\site.js"
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\icons\\apply.png",
+      "PackagePath": "staticwebassets\\icons\\apply.png"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\icons\\compare.png",
+      "PackagePath": "staticwebassets\\icons\\compare.png"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\icons\\decide.png",
+      "PackagePath": "staticwebassets\\icons\\decide.png"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\icons\\explore.png",
+      "PackagePath": "staticwebassets\\icons\\explore.png"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\icons\\website-logo.png",
+      "PackagePath": "staticwebassets\\icons\\website-logo.png"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\IIT(Bombay)_1.jpg",
+      "PackagePath": "staticwebassets\\img\\IIT(Bombay)_1.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\IIT(Delhi)_1.jpg",
+      "PackagePath": "staticwebassets\\img\\IIT(Delhi)_1.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\IIT(Kanpur)_1.jpg",
+      "PackagePath": "staticwebassets\\img\\IIT(Kanpur)_1.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\IIT(Khragpur)_1.jpg",
+      "PackagePath": "staticwebassets\\img\\IIT(Khragpur)_1.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\IIT(Madras)_1.jpg",
+      "PackagePath": "staticwebassets\\img\\IIT(Madras)_1.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\product-2.jpg",
+      "PackagePath": "staticwebassets\\img\\product-2.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\signin-image.jpg",
+      "PackagePath": "staticwebassets\\img\\signin-image.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\img\\signup-image.jpg",
+      "PackagePath": "staticwebassets\\img\\signup-image.jpg"
+    },
+    {
+      "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\js\\main.js",
+      "PackagePath": "staticwebassets\\js\\main.js"
     },
     {
       "Id": "G:\\Github\\Semester-6\\ASP.NET\\College Finder Project\\College Finder\\wwwroot\\lib\\bootstrap\\LICENSE",

@@ -16,16 +16,28 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = G:\Github\Semester-6\ASP.NET\College Finder Project\College Finder
 build_property._RazorSourceGeneratorDebug = 
 
+[G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Areas/MST_Admin/Views/MST_Admin/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0FkbWluXFZpZXdzXE1TVF9BZG1pblxBZG1pbkRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Areas/MST_User_Registration/Views/MST_User_Registration/Login_Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1VzZXJfUmVnaXN0cmF0aW9uXFZpZXdzXE1TVF9Vc2VyX1JlZ2lzdHJhdGlvblxMb2dpbl9SZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Areas/MST_User_Registration/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1VzZXJfUmVnaXN0cmF0aW9uXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Views/Home/Privacy.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Views/Shared/_Layout_Login_Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfTG9naW5fUmVnaXN0ZXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [G:/Github/Semester-6/ASP.NET/College Finder Project/College Finder/Views/Shared/_ValidationScriptsPartial.cshtml]

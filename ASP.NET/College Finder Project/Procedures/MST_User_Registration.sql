@@ -10,11 +10,12 @@ SELECT
 	 [dbo].[MST_User_Registration].[UserID]
 	,[dbo].[MST_User_Registration].[Username]
     ,[dbo].[MST_User_Registration].[Email]
+	,[dbo].[MST_User_Registration].[Password]
 	,[dbo].[MST_User_Registration].[IsAdmin]
 	,[dbo].[MST_User_Registration].[IsActive]
 
 FROM [dbo].[MST_User_Registration]
-WHERE [dbo].[MST_User_Registration].[Username] = @Username
+WHERE ([dbo].[MST_User_Registration].[Username] = @Username OR [dbo].[MST_User_Registration].[Email] = @Username)
 AND	[dbo].[MST_User_Registration].[Password] = @Password
 ORDER BY [dbo].[MST_User_Registration].[Username]
 

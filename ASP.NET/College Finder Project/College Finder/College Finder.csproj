@@ -8,15 +8,15 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Areas\" />
-    <Folder Include="Areas\MST_User_Registration\Controllers\" />
+    <Folder Include="Areas\MST_Admin\Data\" />
+    <Folder Include="Areas\MST_Admin\Models\" />
     <Folder Include="Areas\MST_User_Registration\Data\" />
-    <Folder Include="Areas\MST_User_Registration\Models\" />
-    <Folder Include="Areas\MST_User_Registration\Views\" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="6.0.16" />
+    <PackageReference Include="Quintsys.Practices.EnterpriseLibrary.Data" Version="1.0.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
 </Project>
