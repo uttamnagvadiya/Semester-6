@@ -1,0 +1,141 @@
+﻿@model CollegeFinder.Models.ViewModel
+
+<div class="container-fluid p-0">
+    <div class="col-lg-12">
+        <!-- Image Carousel -->
+        <div class="carousel-frame d-flex justify-content-center align-items-center">
+            <div class="img-opacity"></div>
+            <div class="carousel-slide">
+                <img src="~/img/IIT(Madras)_1.jpg" />
+                <img src="~/img/IIT(Delhi)_1.jpg" />
+                <img src="~/img/IIT(Bombay)_1.jpg" />
+                <img src="~/img/IIT(Khragpur)_1.jpg" />
+                <img src="~/img/IIT(Kanpur)_1.jpg" />
+            </div>
+            <i class="carousel-prev fas fa-chevron-left"></i>
+            <i class="carousel-next fas fa-chevron-right"></i>
+            <ol class="carousel-dots p-0">
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ol>
+            <div class="carousel-content">
+                <p class="" style="opacity: 0.8;">Find Your Perfect</p>
+                <div class="carousel-title">
+                    <h1>University</h1>
+                    <h1>University</h1>
+                </div>
+            </div>
+        </div><!-- End Image Carousel -->
+        <!-- College Select Steps -->
+        <div class="container-fluid">
+            <div class="container clg-select-steps">
+                <div class="row justify-content-center">
+                    <div class="step-box col-md-3 col-sm-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 col-2 d-flex justify-content-center">
+                                <img src="~/icons/explore.png" class="g-icon text-danger" />
+                            </div>
+                            <div class="guide-content col-md-10 col-10">
+                                <div class="step-title fw-bold ">Explore</div>
+                                <p>You can browse 25 to 30 universities from all over the world.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-box col-md-3 col-sm-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 col-2 d-flex justify-content-center">
+                                <img src="~/icons/compare.png" class="g-icon text-danger" />
+                            </div>
+                            <div class="guide-content col-md-10 col-10">
+                                <div class="step-title fw-bold">Compare</div>
+                                <p>Make a wishlist of your favourite universities check your fit with them and read what other students are saying.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-box col-md-3 col-sm-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 col-2 d-flex justify-content-center">
+                                <img src="~/icons/decide.png" class="g-icon text-danger" />
+                            </div>
+                            <div class="guide-content col-md-10 col-10">
+                                <div class="step-title fw-bold">Decide</div>
+                                <p>Now that you have your top universities shortlisted, you can pick the ones that fit you the best.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="step-box col-md-3 col-sm-12">
+                        <div class="row justify-content-center">
+                            <div class="col-md-12 col-2 d-flex justify-content-center">
+                                <img src="~/icons/apply.png" class="g-icon text-danger" />
+                            </div>
+                            <div class="guide-content col-md-10 col-10">
+                                <div class="step-title fw-bold">Apply</div>
+                                <p>When you feel confident about your university choice, you can apply.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- College Select Steps -->
+        <!-- Browse by Streams -->
+        <div class="browse-by-streams">
+            <div class="container">
+                <div class="card shadow border-0">
+                    <div class="card-body">
+                        <h3 class="card-title m-3">Browse by Streams</h3>
+                        <div class="container">
+                            <div class="row justify-content-center p-lg-4">
+                                @foreach (var stream in Model.streamModelsList)
+                                {
+                                    <a class="stream-card col-lg-2 col text-center text-dark text-decoration-none m-1" asp-area="INS_Streams" asp-controller="INS_Streams" asp-action="AboutStream" asp-route-streamId="@stream.StreamID">
+                                        <div class="stream-icon my-4"><i class="bx bx-grid-alt h1"></i></div>
+                                        <div class="stream-title my-3"><h5 class="card-title">@stream.StreamName</h5></div>
+                                    </a>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Browse by Streams -->
+        <!-- Top 25 Colleges -->
+        <div class="top-25-colleges">
+            <div class="container">
+                <div class="card border-0 shadow">
+                    <div class="card-body">
+                        <h4 class="card-title m-3">Top 25 Colleges</h4>
+                        <div class="top-colleges">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr class="table-title-row">
+                                        <th scope="col" class="text-center">#</th>
+                                        <th scope="col" class="">College</th>
+                                        <th scope="col" class="text-center">Approved</th>
+                                        <th scope="col" class="text-center">Type</th>
+                                        <th scope="col" class="text-center">City</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var college in Model.collegeModelsList)
+                                    {
+                                        <tr>
+                                            <td class="text-center"><img src="@college.CollegeLogo.ToString()" /></td>
+                                            <td><a href="#" class="text-dark fs-6 text-decoration-none">@college.CollegeName.ToString()</a></td>
+                                            <td class="text-center">@college.ApprovalShortName.ToString()</td>
+                                            <td class="text-center">@college.CollegeTypeName.ToString()</td>
+                                            <td class="text-center">@college.CityName.ToString()</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Top 25 Colleges -->
+    </div>
+</div>

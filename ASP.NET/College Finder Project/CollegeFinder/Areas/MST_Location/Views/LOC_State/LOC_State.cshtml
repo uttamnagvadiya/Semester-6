@@ -1,0 +1,113 @@
+﻿@{
+    Layout = "_Layout_Admin";
+}
+@model CollegeFinder.Areas.MST_Location.Models.MST_LocationViewModel
+
+<div class="container-fluid">
+    <div class="col-12">
+        <!-- New State Form -->
+        <div class="new-record-section mb-3" id="new-state-section">
+            <div class="container" id="state-registration">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <h4 class="card-title">State Registration Form</h4>
+                        <form method="post" class="m-lg-4 mb-2" asp-area="MST_Location" asp-controller="LOC_State" asp-action="Save">
+                            <input type="hidden" asp-for="@Model.StateModel.StateID" />
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 col-12">
+                                    <!-- Select Country Name Field -->
+                                    <div class="form-field mb-3">
+                                        <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Select Country :</label>
+                                        <select class="form-select" aria-label="Select Country" asp-for="@Model.StateModel.CountryID" asp-items="@(new SelectList(Model.CountryModelsList, "CountryID", "CountryName"))">
+                                            <option selected disabled>Select Country</option>
+                                        </select>
+                                        <span class="form-text text-danger" asp-validation-for="@Model.StateModel.CountryID"></span>
+                                    </div><!-- End Select Country Name Field -->
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <!-- State Name Field -->
+                                    <div class="form-field mb-3">
+                                        <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>State Name :</label>
+                                        <input type="text" class="input-field-box state-name form-control" id="stateName" placeholder="Enter state name..." asp-for="@Model.StateModel.StateName" />
+                                        <span class="form-text text-danger" asp-validation-for="@Model.StateModel.StateName"></span>
+                                    </div><!-- End State Name Field -->
+                                </div>
+                                <div class="col-lg-4 col-12">
+                                    <!-- State Code Field -->
+                                    <div class="form-field mb-3">
+                                        <label class="input-field-label form-label">State Code :</label>
+                                        <input type="text" class="input-field-box state-code form-control" id="stateCode" placeholder="Enter state code..." asp-for="@Model.StateModel.StateCode" />
+                                    </div><!-- End State Code Field -->
+                                </div>
+                            </div>
+                            <!-- Form Buttons -->
+                            <div class="form-buttons">
+                                <div class="row">
+                                    <div class="col d-flex">
+                                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                    </div>
+                                    <div class="col text-end">
+                                        <button type="submit" class="btn btn-outline-danger mx-lg-3" onClick="history.go(-1); return false;">Cancel</button>
+                                    </div>
+                                </div>
+                            </div><!-- End Form Buttons -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End New State Form -->
+        <!-- State List -->
+        <div class="state-list-section">
+            <div class="card shadow border-0">
+                <div class="card-body pb-0">
+                    <div class="display-list overflow-auto">
+                        <table class="table table-hover datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">State Name</th>
+                                    <th scope="col">State Code</th>
+                                    <th scope="col">Created Date</th>
+                                    <th scope="col">Modified Date</th>
+                                    <th scope="col">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                }
+                                @foreach (var state in Model.StateModelsList)
+                                {
+                                    <tr>
+                                        <th><strong>@i</strong></th>
+                                        <td>@state.CountryName?.ToString()</td>
+                                        <td>@state.StateName.ToString()</td>
+                                        <td>@state.StateCode?.ToString()</td>
+                                        <td>@Convert.ToDateTime(state.CreatedDate).ToString("dd MMM, yyyy")</td>
+                                        <td>@Convert.ToDateTime(state.ModifiedDate).ToString("dd MMM, yyyy")</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a class="btn btn-primary shadow" asp-area="MST_Location" asp-controller="LOC_State" asp-action="Update" asp-route-stateId="@state.StateID"><i class="bi-pencil-square"></i></a>
+                                                <a class="btn btn-danger shadow ms-2" asp-area="MST_Location" asp-controller="LOC_State" asp-action="Delete" asp-route-stateId="@state.StateID"><i class="bi-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    i = i + 1;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End State List -->
+    </div>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "37sE25YiyDbxuShWwtlmvVVGLnhSOv3JTTGMcv3goR3b8NPjjehbGlNCy05fWhek7EajRKRhO1su5wN+bvIc4A==",
+  "success": true,
+  "projectFilePath": "G:\\Github\\Semester-6\\ASP.NET\\APIConsumeDemo\\APIConsumeDemo.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Uttam\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.19\\microsoft.windowsdesktop.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\Uttam\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.19\\microsoft.netcore.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\Uttam\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.19\\microsoft.aspnetcore.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\Uttam\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.19\\microsoft.netcore.app.host.win-x64.6.0.19.nupkg.sha512"
+  ],
+  "logs": []
+}

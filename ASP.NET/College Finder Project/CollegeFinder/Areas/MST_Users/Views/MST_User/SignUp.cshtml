@@ -1,0 +1,52 @@
+﻿@{
+    ViewData["Title"] = "Sign Up - User";
+    Layout = "_Layout_User";
+}
+
+@model CollegeFinder.Areas.MST_Users.Models.MST_UserModel
+
+<div class="user signup-box">
+    <div class="form-box">
+        <form method="post" asp-area="MST_Users" asp-controller="MST_User" asp-action="Register">
+            <h2>Create an account</h2>
+            @if (TempData["InvalidDetailsError"] != null)
+            {
+                <span class="form-text text-danger">@Html.Raw(@Convert.ToString(TempData["InvalidDetailsError"]))</span>
+            }
+            <input type="text" name="Username" asp-for="Username" placeholder="Username" />
+            <span class="form-text text-danger" asp-validation-for="Username"></span>
+
+            <input type="email" name="Email" asp-for="Email" placeholder="Email Address" />
+            <span class="form-text text-danger" asp-validation-for="Email"></span>
+
+            <input type="password" name="Password" asp-for="Password" placeholder="Create Password" />
+            <span class="form-text text-danger" asp-validation-for="Password"></span>
+            @if (TempData["PasswordRegexPatternError"] != null)
+            {
+                <span class="form-text text-danger">@Html.Raw(@Convert.ToString(TempData["PasswordRegexPatternError"]))</span>
+            }
+
+            <input type="password" name="ConfirmPassword" asp-for="ConfirmPassword" placeholder="Confirm Password" />
+            <span class="form-text text-danger" asp-validation-for="ConfirmPassword"></span>
+            @if (TempData["ConfirmPasswordMatchError"] != null)
+            {
+                <div class="form-text text-danger">@Html.Raw(@Convert.ToString(TempData["ConfirmPasswordMatchError"]))</div>
+            }
+
+            <input type="submit" name="" value="Sign Up" />
+            <p class="signup">
+                Already have an account ?
+                <a asp-area="MST_User_Registration" asp-controller="MST_User_Registration" asp-action="Index">Sign in.</a>
+            </p>
+        </form>
+    </div>
+    <div class="img-box">
+        <img src="~/img/signup-image.jpg" alt="" />
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

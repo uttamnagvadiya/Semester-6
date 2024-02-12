@@ -40,3 +40,6 @@ G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\runtimes\unix\lib\netcorea
 G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\Quintsys.Practices.EnterpriseLibrary.Data.dll
 G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\Quintsys.System.dll
+G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\FluentValidation.dll
+G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\FluentValidation.AspNetCore.dll
+G:\Github\Semester-6\ASP.NET\APIDemo\bin\Debug\net6.0\FluentValidation.DependencyInjectionExtensions.dll

@@ -1,0 +1,22 @@
+﻿@using CollegeFinder.BAL;
+@using System.Data;
+@{
+    Layout = CommonVariables.IsAdmin() ? "_Layout_Admin" : "_Layout";
+}
+
+@model CollegeFinder.Areas.INS_Course.Models.INS_CourseModel
+
+<div class="p-5">
+    <a asp-area="INS_Course" asp-controller="INS_Course" asp-action="Update" asp-route-courseId="@Convert.ToInt32(Model.CourseID.ToString())">Edit</a>
+    <a asp-area="INS_Course" asp-controller="INS_Course" asp-action="Delete" asp-route-courseId="@Convert.ToInt32(Model.CourseID.ToString())">Delete</a>
+    <img src="@Model.CourseLogo"/>
+    @Model.CourseID
+    @Model.CourseName
+    @Model.CourseShortName
+    @Html.Raw(Model.CourseDefinition)
+    @Html.Raw(Model.CourseDescription)
+    @Model.CourseDuration
+    @Model.CourseFees
+    @Model.IsYearly
+    @Model.StreamName
+</div>

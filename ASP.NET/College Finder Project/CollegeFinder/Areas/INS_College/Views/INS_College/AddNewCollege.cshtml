@@ -1,0 +1,193 @@
+﻿@{
+    Layout = "_Layout_Admin";
+}
+
+@model CollegeFinder.Areas.INS_College.Models.INS_CollegeModel
+
+<div class="container-fluid my-3">
+    <div class="card college-form-card border-0 shadow">
+        <div class="card-header pb-0">
+            <h4 class="card-title fw-bold" style="color:#001c55;">College Registration Form</h4>
+        </div>
+        <div class="card-body">
+            <div class="college-register-form mt-4 w-lg-75 w-100">
+                <form method="post">
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Name Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>College Name :</label>
+                                <input type="text" class="input-field-box college-name form-control" id="collegeName" placeholder="Enter college name..." asp-for="CollegeName" name="CollegeName" />
+                                <span class="form-text text-danger" asp-validation-for="CollegeName"></span>
+                            </div><!-- End College Name Field -->
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <!-- College Short Name Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>College Short Name :</label>
+                                <input type="text" class="input-field-box college-short-name form-control" id="collegeShortName" placeholder="Enter college short name..." asp-for="CollegeShortName" name="CollegeShortName" />
+                                <span class="form-text text-danger" asp-validation-for="CollegeShortName"></span>
+                            </div><!-- End College Short Name Field -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Logo Link Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>College Logo Link :</label>
+                                <input type="text" class="input-field-box college-logo-link form-control" id="collegeLogoLink" placeholder="Enter college logo link..." asp-for="CollegeLogo" name="CollegeLogo" />
+                                <span class="form-text text-danger" asp-validation-for="CollegeLogo"></span>
+                            </div><!-- End College Logo Link Field -->
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <!-- College Established Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label">Established Year :</label>
+                                <input type="number" class="input-field-box college-established form-control" id="collegeEstablished" placeholder="Enter established year..." asp-for="Established" name="Established" />
+                            </div><!-- End College Established Field -->
+                        </div>
+                    </div>
+                    <!-- College Description Field -->
+                    <div class="form-field mb-4">
+                        <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>College Description :</label>
+                        <textarea class="input-field-box college-description form-control" id="collegeDescription" placeholder="Enter college description..." rows="3" asp-for="CollegeDescription" name="CollegeDescription"></textarea>
+                        <span class="form-text text-danger" asp-validation-for="CollegeDescription"></span>
+                    </div><!-- End College Description Field -->
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- About College Courses Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>About Courses :</label>
+                                <textarea class="input-field-box about-college-courses form-control" id="aboutCollegeCourses" placeholder="Enter courses description..." rows="3" asp-for="AboutCourses" name="AboutCourses"></textarea>
+                                <span class="form-text text-danger" asp-validation-for="AboutCourses"></span>
+                            </div><!-- End About College Courses Field -->
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <!-- About College Placement Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>About Placement :</label>
+                                <textarea class="input-field-box about-college-placement form-control" id="aboutCollegePlacement" placeholder="Enter placement description..." rows="3" asp-for="AboutPlacement" name="AboutPlacement"></textarea>
+                                <span class="form-text text-danger" asp-validation-for="AboutPlacement"></span>
+                            </div><!-- End About College Placement Field -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Type Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Select College Type :</label>
+                                <select class="form-select" aria-label="Default select example" asp-for="CollegeTypeName" name="CollegeTypeName">
+                                    <option selected disabled>Select College Type</option>
+                                    <option value="">Public</option>
+                                    <option value="">Government</option>
+                                    <option value="">Private</option>
+                                </select>
+                                <span class="form-text text-danger" asp-validation-for="CollegeTypeName"></span>
+                            </div><!-- End College Type Field -->
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <!-- College Select Organization Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Select Organizations :</label>
+                                <select class="form-select" aria-label="Default select example" asp-for="ApprovalName" name="ApprovalName">
+                                    <option selected disabled>Select Organizations</option>
+                                    <option value="">AICTE</option>
+                                    <option value="">UGC</option>
+                                    <option value="">NAAC</option>
+                                </select>
+                                <span class="form-text text-danger" asp-validation-for="ApprovalName"></span>
+                            </div><!-- End College Select Organization Field -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Email Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Email Address :</label>
+                                <input type="email" class="input-field-box college-email form-control" id="collegeEmail" placeholder="example@gmail.com" asp-for="Email" name="Email" />
+                                <span class="form-text text-danger" asp-validation-for="Email"></span>
+                            </div><!-- End College Email Field -->
+                        </div>
+                        <div class="col-lg-6 col-12">
+                            <!-- College Phone Number Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Phone Number :</label>
+                                <input type="number" class="input-field-box college-phone-number form-control" id="collegePhoneNumber" placeholder="Enter college phone number..." asp-for="Phone" name="Phone" />
+                                <span class="form-text text-danger" asp-validation-for="Phone"></span>
+                            </div><!-- End College Phone Number Field -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Website Link -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Website Link :</label>
+                                <input type="text" class="input-field-box college-website-link form-control" id="collegeWebsiteLink" placeholder="Enter college website link..." asp-for="Website" name="Website" />
+                                <span class="form-text text-danger" asp-validation-for="Website"></span>
+                            </div>
+                        </div><!--End College Website Link -->
+                        <div class="col-lg-6 col-12">
+                            <!-- Select College City -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Select City :</label>
+                                <select class="form-select" aria-label="Default select example" asp-for="CityName" name="CityName">
+                                    <option selected disabled>Select City</option>
+                                    <option value="">Rajkot</option>
+                                    <option value="">Ahemdabad</option>
+                                    <option value="">Baroda</option>
+                                    <option value="">Surat</option>
+                                </select>
+                                <span class="form-text text-danger" asp-validation-for="CityName"></span>
+                            </div><!-- End Select College City -->
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-12">
+                            <!-- College Campus Type Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label">Campus Type :</label>
+                                <input type="text" class="input-field-box college-campus-type form-control" id="collegeCampusType" placeholder="Enter college campus type..." asp-for="CampusType" name="CampusType" />
+                            </div>
+                        </div><!--End College Campus Type Field -->
+                        <div class="col-lg-6 col-12">
+                            <!-- College Campus Area Field -->
+                            <div class="form-field mb-4">
+                                <label class="input-field-label form-label">Campus Area :</label>
+                                <input type="text" class="input-field-box college-campus-area form-control" id="collegeCampusArea" placeholder="Enter college campus area..." asp-for="CampusArea" name="CampusArea" />
+                            </div>
+                        </div><!--End College Campus Area Field -->
+                    </div>
+                    <!-- College Address Field -->
+                    <div class="form-field mb-3">
+                        <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Address :</label>
+                        <textarea class="input-field-box college-address form-control" id="collegeAddress" placeholder="Enter college address..." rows="3" asp-for="Address" name="Address"></textarea>
+                        <span class="form-text text-danger" asp-validation-for="Address"></span>
+                    </div><!-- End College Address Field -->
+                    <!-- College Is University Field -->
+                    <div class="form-field mb-4">
+                        <input class="form-check-input" type="checkbox" value="false" id="flexCheckDefault" asp-for="IsUniversity" name="IsUniversity">
+                        <label class="form-check-label input-field-label form-label ms-2">Is University</label>
+                    </div><!-- End College Is University Field -->
+                    <!-- Form Buttons -->
+                    <div class="form-buttons">
+                        <div class="row">
+                            <div class="col">
+                                <button type="submit" class="btn btn-primary me-lg-3">Submit</button>
+                                <button type="reset" class="btn btn-secondary">Reset</button>
+                            </div>
+                            <div class="col text-end">
+                                <button type="submit" class="btn btn-outline-danger mx-lg-3" onClick="history.go(-1); return false;">Cancel</button>
+                            </div>
+                        </div>
+                    </div><!-- End Form Buttons -->
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

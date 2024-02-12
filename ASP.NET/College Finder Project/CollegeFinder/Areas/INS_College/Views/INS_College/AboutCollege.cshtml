@@ -1,0 +1,362 @@
+﻿@using CollegeFinder.BAL;
+@{
+    Layout = CommonVariables.IsAdmin() == true ? "_Layout_Admin" : "_Layout";
+}
+
+@model CollegeFinder.Areas.INS_College.Models.INS_CollegeViewModel
+
+<div class="container-fluid pt-3">
+    <div class="about-college-details">
+        <div class="card border-0">
+            <!-- College Header Information -->
+            <div class="card-header p-3">
+                <div class="d-flex align-items-center">
+                    <div class="college-logo">
+                        <div class="logo-box">
+                            <img src="@Model.CollegeDetailsModel.CollegeLogo" />
+                        </div>
+                    </div>
+                    <div class="college-header-info w-100">
+                        <h3 class="card-title fw-bold">@Model.CollegeDetailsModel.CollegeName - @Model.CollegeDetailsModel.CollegeShortName</h3>
+                        <div class="d-lg-flex d-block align-items-center">
+                            <div class="college-approval d-flex align-items-center me-lg-4">
+                                <i class="bi bi-trophy-fill me-1"></i>
+                                <span>Approved by : @Model.CollegeDetailsModel.ApprovalShortName</span>
+                            </div>
+                            <div class="college-approval d-flex align-items-center me-lg-4">
+                                <i class="bi bi-flag-fill me-1"></i>
+                                <span>@Model.CollegeDetailsModel.CollegeTypeName</span>
+                            </div>
+                            <div class="college-approval d-flex align-items-center me-lg-4">
+                                <i class="bi bi-geo-alt-fill me-1"></i>
+                                <span>@Model.CollegeDetailsModel.CityName, @Model.CollegeDetailsModel.StateName</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- End College Header Information -->
+            <div class="card-body p-0">
+                <!-- Tab Bar -->
+                <div class="tab-bar">
+                    <ul class="list-unstyled d-flex align-items-center overflow-auto w-100 mb-0">
+                        <li>
+                            <button id="defaultOpenTab" class="tab-link" onclick="openTabView('About', this)">About</button>
+                        </li>
+                        <li>
+                            <button class="tab-link" onclick="openTabView('Courses', this)">Courses</button>
+                        </li>
+                        <li>
+                            <button class="tab-link" onclick="openTabView('Placements', this)">Placements</button>
+                        </li>
+                        <li>
+                            <button class="tab-link" onclick="openTabView('Campus', this)">Campus</button>
+                        </li>
+                        <li>
+                            <button class="tab-link" onclick="openTabView('Gallery', this)">Gallery</button>
+                        </li>
+                        <li>
+                            <button class="tab-link" onclick="openTabView('Reviews', this)">Reviews</button>
+                        </li>
+                    </ul>
+                </div><!-- End Tab Bar -->
+            </div>
+        </div>
+    </div>
+    <!-- Tab Bar View -->
+    <div class="tab-view">
+        <!-- Tab :: About -->
+        <div class="tab-content" id="About">
+            <div class="college-overview">
+                <div class="card mt-3">
+                    <div class="card-header pb-0" style="color: #001c55; text-align:justify;">
+                        <h4 class="card-title">Overview</h4>
+                    </div>
+                    <div class="card-body">@Html.Raw(Model.CollegeDetailsModel.CollegeDescription)</div>
+                </div>
+                <div class="card mt-3">
+                    <div class="card-header pb-0" style="color: #001c55; text-align:justify;">
+                        <h4 class="card-title">About Information</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 col-4 parameter"><span class="fw-bold">Parameters</span></div>
+                            <div class="col-8 details"><span class="fw-bold">Details</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">College Name</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.CollegeName - @Model.CollegeDetailsModel.CollegeShortName</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Type of College</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.CollegeTypeName</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Approved by</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.ApprovalName - @Model.CollegeDetailsModel.ApprovalShortName</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Established Year</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.Established</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Is University</span></div>
+                            <div class="col-8 parameter-info"><span class="">@(Model.CollegeDetailsModel.IsUniversity ? "Yes" : "No")</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Study Mode</span></div>
+                            <div class="col-8 parameter-info"><span class="">Regular</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Hostel Availability</span></div>
+                            <div class="col-8 parameter-info"><span class="">Yes</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Type of Campus</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.CampusType</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Area of Campus</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.CampusArea</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Email Address</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.Email</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Phone Number</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.Phone</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Website</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Html.Raw(Model.CollegeDetailsModel.Website)</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Located</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.CityName, @Model.CollegeDetailsModel.StateName, @Model.CollegeDetailsModel.CountryName</span></div>
+                            <div class="col-lg-3 col-4 parameter-label"><span class="">Address</span></div>
+                            <div class="col-8 parameter-info"><span class="">@Model.CollegeDetailsModel.Address</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Tab :: About -->
+        <!-- Tab :: Courses -->
+        <div class="tab-content" id="Courses">
+            <div class="about-college-courses">
+                <div class="card mt-3">
+                    <div class="card-header pb-0" style="color: #001c55; text-align:justify;">
+                        <h4>@Model.CollegeDetailsModel.CollegeShortName Courses</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-courses">
+                            @Html.Raw(Model.CollegeDetailsModel.AboutCourses)     
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Tab :: Courses -->
+        <!-- Tab :: Placements -->
+        <div class="tab-content" id="Placements">
+            <div class="about-college-courses">
+                <div class="card mt-3">
+                    <div class="card-header pb-0" style="color: #001c55; text-align:justify;">
+                        <h4>@Model.CollegeDetailsModel.CollegeShortName Placements</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="info-courses">
+                            @Html.Raw(Model.CollegeDetailsModel.AboutPlacement)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Tab :: Placements -->
+        <!-- Tab :: Campus -->
+        <div class="tab-content" id="Campus">
+            <div class="capmus-details">
+                <div class="card mt-3">
+                    <div class="card-header pb-0" style="color: #001c55; text-align:justify;">
+                        <h4 class="card-title">About Campus</h4>
+                    </div>
+                    <div class="card-body">
+                        <p style="color: #001c55cc; text-align:justify;" class="my-3">
+                            The campus of this college has all the latest facilities for providing quality education and a productive learning environment for students.
+                            The classrooms of this college are equipped with sophisticated facilities such as audio-visual aids, virtual teaching facility, air conditioner, good ambience etc.
+                            The classrooms at this college are used for carrying out interactive teaching and learning.
+                            <div style="color: #001c55cc; text-align:justify;" class="mt-4">Some of the major highlights of the this college campus are :</div>
+                        </p>
+                        <div class="highlights">
+                            <ul style="color: #001c55cc; text-align:justify;">
+                                <li>Central Library</li>
+                                <li>Central Electronic Centre</li>
+                                <li>Central Workshops</li>
+                                <li>PG Senapathy Centre for Computer Resources</li>
+                                <li>Sophisticated Analytical Instrumentation Centre</li>
+                                <li>Central Glass Blowing Section</li>
+                            </ul>
+                        </div>
+                        <p style="color: #001c55cc; text-align:justify;">
+                            The laboratories, research centres and centres of excellence at this college campus are the places where students attain practical knowledge in various domains such as engineering, sciences etc.
+                            The research facilities at this college are world-class, and the institute has always been successful in delivering quality research output.
+                            At the same time, facilities are available for students who want to incubate their startups.
+                        </p>
+                        <p style="color: #001c55cc; text-align:justify;">
+                            This college provides hostel facilities to students, faculty and staff.
+                            Separate hostel blocks are there on the campus of this college.
+                            The hostels are equipped with modern amenities for the comfort of students.
+                            The hostel mess provides hygienic and nutritious food to students. The campus of this college also has canteens, recreation spots, seminar halls, conference rooms, auditorium and sports facilities.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="campus-facilities">
+                <div class="card mt-5">
+                    <div class="card-header pb-0">
+                        <h4 class="card-title" style="color: #001c55; text-align:justify;">Campus Facilities</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="22.826" viewBox="0 0 30 22.826"><g transform="translate(0 -41.75)"><g transform="translate(0 41.75)"><path d="M29,47.979,17.045,42.137a4.9,4.9,0,0,0-3.814,0L1,47.979a1.474,1.474,0,0,0-1,1.306c0,.309.137.859,1,1.306l1,.481v5.5A1.684,1.684,0,0,0,.928,58.116a1.706,1.706,0,0,0,1.031,1.546L.412,64.576h4.33L3.2,59.662a1.665,1.665,0,0,0-.034-3.093V51.656l1.821.893V59.7a.554.554,0,0,0,.1.309,12.48,12.48,0,0,0,9.9,4.57,12.409,12.409,0,0,0,9.863-4.57.554.554,0,0,0,.1-.309V52.583L29,50.59a1.474,1.474,0,0,0,1-1.306A1.536,1.536,0,0,0,29,47.979ZM23.849,59.525a11.491,11.491,0,0,1-8.866,3.986,11.491,11.491,0,0,1-8.866-3.986V53.03l7.113,3.4a4.634,4.634,0,0,0,1.89.378,4.184,4.184,0,0,0,1.924-.412l6.8-3.333Zm4.674-9.9L24.4,51.655a.4.4,0,0,0-.378.206L16.564,55.47a3.815,3.815,0,0,1-2.887,0L4.5,51.071l10.55-1.237a.535.535,0,1,0-.1-1.065L2.715,50.212l-1.237-.584a.693.693,0,0,1-.378-.309c0-.034.069-.172.378-.309l12.234-5.876a3.55,3.55,0,0,1,1.409-.275,3.483,3.483,0,0,1,1.443.275l11.959,5.842c.309.137.378.275.378.344A.945.945,0,0,1,28.522,49.628Z" transform="translate(0 -41.75)" fill="#2f2d51"></path></g></g></svg>
+                                    <span class="ms-4">Academic Zone</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29.256" viewBox="0 0 30 29.256"><g transform="translate(0 -6.352)"><g transform="translate(16.66 15.001)"><path d="M297.241,153.963a.427.427,0,0,0-.427.427v17.2a.412.412,0,0,1-.411.411H284.755a.427.427,0,1,0,0,.854H296.4a1.267,1.267,0,0,0,1.265-1.265v-17.2A.427.427,0,0,0,297.241,153.963Z" transform="translate(-284.328 -153.963)" fill="#2f2d51"></path></g><g transform="translate(0 6.352)"><g transform="translate(0 0)"><path d="M28.735,6.352H1.265A1.267,1.267,0,0,0,0,7.617V32.63A1.267,1.267,0,0,0,1.265,33.9H2.381a.427.427,0,1,0,0-.854H1.265a.412.412,0,0,1-.411-.411V7.617a.412.412,0,0,1,.411-.411h27.47a.412.412,0,0,1,.411.411v5.135a.427.427,0,0,0,.854,0V7.617A1.267,1.267,0,0,0,28.735,6.352Z" transform="translate(0 -6.352)" fill="#2f2d51"></path></g></g><g transform="translate(2.378 23.161)"><path d="M55.03,294.405a1.178,1.178,0,0,0-1.177-1.177h-12.1a1.177,1.177,0,0,0,0,2.354H42.5l-.966,9.024a.933.933,0,0,0,.236.732,1.049,1.049,0,0,0,.784.337H53.312a1.049,1.049,0,0,0,.784-.337.933.933,0,0,0,.236-.732l-.966-9.024h.488A1.178,1.178,0,0,0,55.03,294.405Zm-13.275.323a.323.323,0,0,1,0-.646h.909l-.069.646Zm.8,10.092a.2.2,0,0,1-.148-.054.085.085,0,0,1-.022-.07l1.136-10.615h4.806l.546,10.739Zm7.173,0-.546-10.739h1.059l.851,10.739Zm3.752-.124a.085.085,0,0,1-.022.07.2.2,0,0,1-.148.054H51.951L51.1,294.082h1.246Zm-.208-9.968-.069-.646h.648a.323.323,0,0,1,0,.646Z" transform="translate(-40.578 -293.228)" fill="#2f2d51"></path></g><g transform="translate(19.007 23.161)"><path d="M327.411,293.228h-2.194a.831.831,0,0,0-.83.83v2.194a.831.831,0,0,0,.83.83h2.194a.831.831,0,0,0,.83-.83v-2.194A.831.831,0,0,0,327.411,293.228Zm-.024,3h-2.147v-2.147h2.147Z" transform="translate(-324.387 -293.228)" fill="#2f2d51"></path></g><g transform="translate(23.768 23.161)"><path d="M408.663,293.228h-2.194a.831.831,0,0,0-.83.83v2.194a.831.831,0,0,0,.83.83h2.194a.831.831,0,0,0,.83-.83v-2.194A.831.831,0,0,0,408.663,293.228Zm-.024,3h-2.147v-2.147h2.147Z" transform="translate(-405.639 -293.228)" fill="#2f2d51"></path></g><g transform="translate(19.007 27.821)"><path d="M327.411,372.761h-2.194a.831.831,0,0,0-.83.83v2.194a.831.831,0,0,0,.83.83h2.194a.831.831,0,0,0,.83-.83v-2.194A.831.831,0,0,0,327.411,372.761Zm-.024,3h-2.147v-2.147h2.147Z" transform="translate(-324.387 -372.761)" fill="#2f2d51"></path></g><g transform="translate(23.768 27.821)"><path d="M408.663,372.761h-2.194a.831.831,0,0,0-.83.83v2.194a.831.831,0,0,0,.83.83h2.194a.831.831,0,0,0,.83-.83v-2.194A.831.831,0,0,0,408.663,372.761Zm-.024,3h-2.147v-2.147h2.147Z" transform="translate(-405.639 -372.761)" fill="#2f2d51"></path></g><g transform="translate(2.378 8.766)"><g transform="translate(0 0)"><path d="M65.823,48.787a1.231,1.231,0,0,0-1.229-1.229H41.807a1.231,1.231,0,0,0-1.229,1.229v9.622a1.231,1.231,0,0,0,1.229,1.229H64.593a1.231,1.231,0,0,0,1.229-1.229V48.787Zm-.854,9.622h0a.376.376,0,0,1-.375.375H41.807a.376.376,0,0,1-.375-.375V48.787a.376.376,0,0,1,.375-.375H64.593a.376.376,0,0,1,.375.375Z" transform="translate(-40.578 -47.558)" fill="#2f2d51"></path></g></g><g transform="translate(6.935 12.318)"><path d="M122.381,112.763l-1.3-4.23c-.076-.243-.388-.361-.707-.361s-.631.118-.707.361l-1.29,4.23a.359.359,0,0,0-.014.076c0,.257.4.444.694.444.173,0,.312-.055.354-.2l.236-.867h1.463l.236.867c.042.146.18.2.354.2.3,0,.693-.187.693-.444A.355.355,0,0,0,122.381,112.763Zm-2.51-1.38.506-1.858.506,1.858Z" transform="translate(-118.366 -108.172)" fill="#2f2d51"></path></g><g transform="translate(12.705 12.36)"><g transform="translate(0 0)"><path d="M220.15,108.882h-3c-.229,0-.326.25-.326.478,0,.263.118.492.326.492h.957v3.765c0,.222.27.333.541.333s.541-.111.541-.333v-3.765h.957c.208,0,.326-.229.326-.492C220.476,109.132,220.378,108.882,220.15,108.882Z" transform="translate(-216.828 -108.882)" fill="#2f2d51"></path></g></g><g transform="translate(18.876 12.36)"><path d="M325.8,108.882c-.388,0-.555.042-.839.541l-.714,1.248-.714-1.248c-.284-.5-.451-.541-.839-.541a.5.5,0,0,0-.541.541v4.2c0,.222.27.333.541.333s.541-.111.541-.333v-2.67l.659,1.207a.356.356,0,0,0,.34.2.4.4,0,0,0,.361-.2l.666-1.137v2.6c0,.222.27.333.541.333s.541-.111.541-.333v-4.2A.5.5,0,0,0,325.8,108.882Z" transform="translate(-322.154 -108.882)" fill="#2f2d51"></path></g></g></svg>
+                                    <span class="ms-4">ATM</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g transform="translate(0 0)"><path d="M29.147,13.03V10.5a.586.586,0,0,0-.586-.586H24.542a3.22,3.22,0,0,0,.59-1.253,3.886,3.886,0,0,0-.877-3.369,5.027,5.027,0,0,0-5-1.267A12.675,12.675,0,0,0,13.794,7.14c-1.442,1.239-3.156,2.531-4.928,2.724-.193.021-.394.037-.6.046h-.6a2.6,2.6,0,0,1-2.4-1.193,1.382,1.382,0,0,1,.007-1.275A.97.97,0,0,1,6.031,7a1.071,1.071,0,0,1,.909.326.543.543,0,0,1,.107.655.586.586,0,1,0,.963.668,1.677,1.677,0,0,0-.193-2.1,2.245,2.245,0,0,0-1.9-.716,2.3,2.3,0,0,0-.812.23V4.006a1.643,1.643,0,0,0,1.47-1.632V1.641A1.643,1.643,0,0,0,4.937,0h-3.3A1.643,1.643,0,0,0,0,1.641v.733A1.643,1.643,0,0,0,1.441,4V26.858a.586.586,0,0,0,1.172,0V4.015H3.936v25.4a.586.586,0,0,0,1.172,0v-19.1a4.086,4.086,0,0,0,1.977.724V13.03a8.238,8.238,0,0,0-.853,3.462,8.238,8.238,0,0,0,.853,3.462v2.477a.586.586,0,0,0,.586.586h20.89a.586.586,0,0,0,.586-.586V19.954A8.237,8.237,0,0,0,30,16.492a8.238,8.238,0,0,0-.853-3.462ZM4.937,2.843h-3.3a.47.47,0,0,1-.469-.469V1.641a.47.47,0,0,1,.469-.469h3.3a.47.47,0,0,1,.469.469v.733A.47.47,0,0,1,4.937,2.843Zm9.621,5.187A11.366,11.366,0,0,1,19.5,5.167c.782-.167,2.726-.416,3.871.893a2.733,2.733,0,0,1,.616,2.334,1.949,1.949,0,0,1-1.039,1.339,1.814,1.814,0,0,1-.675.177,1.64,1.64,0,0,1-1.559-.824c-.238-.489-.061-1.437.588-1.525a.758.758,0,0,1,.546.124.3.3,0,0,1,.113.228.586.586,0,0,0,1.169-.083,1.459,1.459,0,0,0-.543-1.054,1.889,1.889,0,0,0-2.389.066,2.392,2.392,0,0,0-.671,2.428,2.428,2.428,0,0,0,.313.641H12.037a18.932,18.932,0,0,0,2.52-1.881Zm13.49,11.5a.586.586,0,0,0-.073.284v2.033H8.257V19.811a.59.59,0,0,0-.073-.283,7.152,7.152,0,0,1-.78-3.036,7.152,7.152,0,0,1,.78-3.035.586.586,0,0,0,.073-.284v-2.09H27.975v2.091a.59.59,0,0,0,.073.283,7.153,7.153,0,0,1,.78,3.036,7.152,7.152,0,0,1-.78,3.035Z" transform="translate(0 0)" fill="#2f2d51"></path><path d="M25.719,492.371a.585.585,0,1,0-.2.7A.591.591,0,0,0,25.719,492.371Z" transform="translate(-23.151 -463.181)" fill="#2f2d51"></path><path d="M441.792,250.713h0l-.617,0v-2.584a.439.439,0,1,0-.879,0v3.021a.44.44,0,0,0,.365.433,2.719,2.719,0,0,0,.394.009l.741,0a.439.439,0,0,0,0-.879Z" transform="translate(-414.496 -233.179)" fill="#2f2d51"></path><path d="M150.445,247.691a.439.439,0,0,0-.439.439v1.021h-1.214V248.13a.439.439,0,0,0-.879,0v3.024a.439.439,0,0,0,.879,0V250.03h1.214v1.124a.439.439,0,0,0,.879,0V248.13A.439.439,0,0,0,150.445,247.691Z" transform="translate(-139.246 -233.178)" fill="#2f2d51"></path><path d="M394.145,248.806a.439.439,0,0,0,0-.879h-1.263a.439.439,0,0,0-.439.439v3a.439.439,0,0,0,.439.439h1.263a.439.439,0,0,0,0-.879h-.823V250.3h.73a.439.439,0,0,0,0-.879h-.73v-.619h.823Z" transform="translate(-369.448 -233.4)" fill="#2f2d51"></path><path d="M284.143,249.256c-.361-.133-.7-.278-.812-.328a.148.148,0,0,1-.046-.135.245.245,0,0,1,.2-.192.945.945,0,0,1,.776.181.439.439,0,0,0,.563-.675,1.828,1.828,0,0,0-1.592-.348,1.124,1.124,0,0,0-.814.909,1.022,1.022,0,0,0,.456,1.012.441.441,0,0,0,.061.033c.018.008.436.194.907.368.092.034.39.159.357.343a.456.456,0,0,1-.468.293.991.991,0,0,1-.728-.3.439.439,0,0,0-.651.59,1.857,1.857,0,0,0,1.379.593,1.308,1.308,0,0,0,1.333-1.018A1.2,1.2,0,0,0,284.143,249.256Z" transform="translate(-265.698 -233.18)" fill="#2f2d51"></path><path d="M339.963,247.691h-1.67a.439.439,0,0,0,0,.879h.392v2.584a.439.439,0,1,0,.879,0V248.57h.4a.439.439,0,0,0,0-.879Z" transform="translate(-318.058 -233.178)" fill="#2f2d51"></path><path d="M211.028,247.691a1.951,1.951,0,1,0,1.951,1.951A1.954,1.954,0,0,0,211.028,247.691Zm0,3.024a1.073,1.073,0,1,1,1.072-1.072A1.074,1.074,0,0,1,211.028,250.715Z" transform="translate(-196.826 -233.178)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Boys Hostel</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29.832" viewBox="0 0 30 29.832"><g transform="translate(0 -0.499)"><path d="M75.178,18.1l1.763-.112h.009a4.15,4.15,0,0,0,3.094-1.806l1.393-2.044A8.249,8.249,0,0,0,82.76,8.081a1.861,1.861,0,0,0-1.746-1.548,8.247,8.247,0,0,0-5.85,2.039L73.3,10.2a4.151,4.151,0,0,0-1.422,3.288s0,.006,0,.009l.1,1.763a2.481,2.481,0,0,1-.69,1.859L56.737,32.069a2.114,2.114,0,0,0-.566,1.569A2.431,2.431,0,0,0,58.634,36q.1,0,.193-.008a2.115,2.115,0,0,0,1.492-.753L73.414,19.005A2.482,2.482,0,0,1,75.178,18.1Zm-2.463.343L59.622,34.674a1.224,1.224,0,0,1-.866.424,1.536,1.536,0,0,1-1.686-1.5,1.222,1.222,0,0,1,.314-.908L71.935,17.746a3.384,3.384,0,0,0,.943-2.536l-.1-1.759a3.255,3.255,0,0,1,1.115-2.574l1.863-1.628a7.358,7.358,0,0,1,5.216-1.818.963.963,0,0,1,.9.8,7.354,7.354,0,0,1-1.179,5.4L79.3,15.671a3.256,3.256,0,0,1-2.422,1.416l-1.758.111A3.386,3.386,0,0,0,72.715,18.439Zm0,0" transform="translate(-52.877 -5.671)" fill="#2f2d51"></path><path d="M301.885,295.9l-9.757-8.887a.45.45,0,1,0-.606.665l9.755,8.885a1.224,1.224,0,0,1,.371.89,1.536,1.536,0,0,1-1.594,1.594,1.223,1.223,0,0,1-.888-.368l-8.694-9.545a.45.45,0,1,0-.665.606l8.7,9.548a2.114,2.114,0,0,0,1.533.66h.047a2.434,2.434,0,0,0,2.463-2.511A2.117,2.117,0,0,0,301.885,295.9Zm0,0" transform="translate(-272.715 -269.62)" fill="#2f2d51"></path><path d="M5.427,12.34a4.164,4.164,0,0,0,2.723,1.1h.009l1.766.005a2.481,2.481,0,0,1,1.815.8l.778.854a.45.45,0,1,0,.665-.606L12.4,13.64a3.384,3.384,0,0,0-2.475-1.093l-1.761-.005A3.268,3.268,0,0,1,6.057,11.7L.939,5.613a.155.155,0,0,1,.229-.21l4.659,4.659a1.182,1.182,0,0,0,1.67,0l.547-.547h0l.972-.972h0l.547-.547a1.183,1.183,0,0,0,0-1.67L4.9,1.666a.155.155,0,0,1,.21-.229L11.2,6.555a3.266,3.266,0,0,1,.845,2.11l.005,1.761A3.387,3.387,0,0,0,13.143,12.9l.834.759A.45.45,0,1,0,14.582,13l-.832-.758a2.482,2.482,0,0,1-.8-1.816l-.005-1.766s0-.006,0-.01a4.164,4.164,0,0,0-1.1-2.723.449.449,0,0,0-.041-.04L5.694.749A1.055,1.055,0,0,0,4.269,2.3L8.928,6.96a.282.282,0,0,1,0,.4l-.23.229L3.506,2.4a.45.45,0,1,0-.636.636L8.062,8.224l-.336.336L2.534,3.369A.45.45,0,0,0,1.9,4L7.09,9.2l-.229.23a.282.282,0,0,1-.4,0L1.8,4.768A1.055,1.055,0,0,0,.25,6.192L5.388,12.3A.419.419,0,0,0,5.427,12.34Zm0,0" transform="translate(0)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Canteen</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="26.818" height="30" viewBox="0 0 26.818 30"><g transform="translate(-4.5 -1)"><path d="M29,34.265H6.823A2.323,2.323,0,0,1,4.5,31.952V16.088A2.323,2.323,0,0,1,6.823,13.77h8.713a.455.455,0,0,1,0,.909H6.823a1.414,1.414,0,0,0-1.414,1.409V31.952a1.414,1.414,0,0,0,1.414,1.4H29a1.409,1.409,0,0,0,1.409-1.4V16.088A1.409,1.409,0,0,0,29,14.679H20.282a.455.455,0,0,1,0-.909H29a2.323,2.323,0,0,1,2.318,2.318V31.952A2.323,2.323,0,0,1,29,34.265Z" transform="translate(0 -6.966)" fill="#2f2d51"></path><path d="M31.332,33.053H10.115A.455.455,0,0,1,9.66,32.6V19.385a.455.455,0,0,1,.455-.455h6.554a.455.455,0,1,1,0,.909h-6.1v12.3H30.878v-12.3h-6.1a.455.455,0,1,1,0-.909h6.554a.455.455,0,0,1,.455.455V32.6A.455.455,0,0,1,31.332,33.053Z" transform="translate(-2.815 -9.78)" fill="#2f2d51"></path><path d="M32.222,59.557H27.058a.455.455,0,0,1-.432-.309l-.6-1.818a.453.453,0,0,1,.427-.6h6.364a.453.453,0,0,1,.427.6l-.6,1.818A.455.455,0,0,1,32.222,59.557Zm-4.854-.909h4.545l.3-.909H27.09Z" transform="translate(-11.731 -30.453)" fill="#2f2d51"></path><path d="M32.378,63.624H21.851a.453.453,0,0,1-.282-.823l2.7-1.9a.454.454,0,0,1,.264-.086h5.173a.455.455,0,0,1,.259.086l2.677,1.9a.455.455,0,0,1-.264.827Zm-9.091-.909h7.668l-1.4-.991H24.673Z" transform="translate(-9.205 -32.624)" fill="#2f2d51"></path><path d="M16.785,65.909a.455.455,0,1,1,0-.909H31.939a.455.455,0,1,1,0,.909Z" transform="translate(-6.453 -34.91)" fill="#2f2d51"></path><path d="M28.92,21.605H19.088a3.414,3.414,0,0,1-2.777-5.4l4.964-6.9V5.665a.455.455,0,0,1,.455-.455H26.3a.455.455,0,0,1,.455.455V9.324L31.7,16.2a3.418,3.418,0,0,1-2.777,5.4Zm-6.736-15.5V9.446a.455.455,0,0,1-.086.264l-5.05,7.018A2.509,2.509,0,0,0,19.088,20.7H28.92a2.509,2.509,0,0,0,2.036-3.968l-5-7.009a.455.455,0,0,1-.086-.264V6.105Z" transform="translate(-6.093 -2.296)" fill="#2f2d51"></path><path d="M32.758,3.809H25.745a.455.455,0,0,1-.455-.455v-1.9A.455.455,0,0,1,25.745,1h7.014a.455.455,0,0,1,.455.455v1.9A.455.455,0,0,1,32.758,3.809ZM26.2,2.9h6.1V1.909H26.2Z" transform="translate(-11.34 0)" fill="#2f2d51"></path><path d="M30.3,23.867a20.186,20.186,0,0,1-3.427-.364c-1.864-.314-3.636-.614-5.3.141a.455.455,0,1,1-.377-.827c1.923-.873,3.823-.55,5.827-.209a13.1,13.1,0,0,0,5.132.177.445.445,0,1,1,.168.873A9.7,9.7,0,0,1,30.3,23.867Z" transform="translate(-8.964 -11.595)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Computer Labs</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g transform="translate(0 0)"><path d="M29.147,13.03V10.5a.586.586,0,0,0-.586-.586H24.542a3.22,3.22,0,0,0,.59-1.253,3.886,3.886,0,0,0-.877-3.369,5.027,5.027,0,0,0-5-1.267A12.675,12.675,0,0,0,13.794,7.14c-1.442,1.239-3.156,2.531-4.928,2.724-.193.021-.394.037-.6.046h-.6a2.6,2.6,0,0,1-2.4-1.193,1.382,1.382,0,0,1,.007-1.275A.97.97,0,0,1,6.031,7a1.071,1.071,0,0,1,.909.326.543.543,0,0,1,.107.655.586.586,0,1,0,.963.668,1.677,1.677,0,0,0-.193-2.1,2.245,2.245,0,0,0-1.9-.716,2.3,2.3,0,0,0-.812.23V4.006a1.643,1.643,0,0,0,1.47-1.632V1.641A1.643,1.643,0,0,0,4.937,0h-3.3A1.643,1.643,0,0,0,0,1.641v.733A1.643,1.643,0,0,0,1.441,4V26.858a.586.586,0,0,0,1.172,0V4.015H3.936v25.4a.586.586,0,0,0,1.172,0v-19.1a4.086,4.086,0,0,0,1.977.724V13.03a8.238,8.238,0,0,0-.853,3.462,8.238,8.238,0,0,0,.853,3.462v2.477a.586.586,0,0,0,.586.586h20.89a.586.586,0,0,0,.586-.586V19.954A8.237,8.237,0,0,0,30,16.492a8.238,8.238,0,0,0-.853-3.462ZM4.937,2.843h-3.3a.47.47,0,0,1-.469-.469V1.641a.47.47,0,0,1,.469-.469h3.3a.47.47,0,0,1,.469.469v.733A.47.47,0,0,1,4.937,2.843Zm9.621,5.187A11.366,11.366,0,0,1,19.5,5.167c.782-.167,2.726-.416,3.871.893a2.733,2.733,0,0,1,.616,2.334,1.949,1.949,0,0,1-1.039,1.339,1.814,1.814,0,0,1-.675.177,1.64,1.64,0,0,1-1.559-.824c-.238-.489-.061-1.437.588-1.525a.758.758,0,0,1,.546.124.3.3,0,0,1,.113.228.586.586,0,0,0,1.169-.083,1.459,1.459,0,0,0-.543-1.054,1.889,1.889,0,0,0-2.389.066,2.392,2.392,0,0,0-.671,2.428,2.428,2.428,0,0,0,.313.641H12.037a18.932,18.932,0,0,0,2.52-1.881Zm13.49,11.5a.586.586,0,0,0-.073.284v2.033H8.257V19.811a.59.59,0,0,0-.073-.283,7.152,7.152,0,0,1-.78-3.036,7.152,7.152,0,0,1,.78-3.035.586.586,0,0,0,.073-.284v-2.09H27.975v2.091a.59.59,0,0,0,.073.283,7.153,7.153,0,0,1,.78,3.036,7.152,7.152,0,0,1-.78,3.035Z" transform="translate(0 0)" fill="#2f2d51"></path><path d="M25.719,492.371a.585.585,0,1,0-.2.7A.591.591,0,0,0,25.719,492.371Z" transform="translate(-23.151 -463.181)" fill="#2f2d51"></path><path d="M441.792,250.713h0l-.617,0v-2.584a.439.439,0,1,0-.879,0v3.021a.44.44,0,0,0,.365.433,2.719,2.719,0,0,0,.394.009l.741,0a.439.439,0,0,0,0-.879Z" transform="translate(-414.496 -233.179)" fill="#2f2d51"></path><path d="M150.445,247.691a.439.439,0,0,0-.439.439v1.021h-1.214V248.13a.439.439,0,0,0-.879,0v3.024a.439.439,0,0,0,.879,0V250.03h1.214v1.124a.439.439,0,0,0,.879,0V248.13A.439.439,0,0,0,150.445,247.691Z" transform="translate(-139.246 -233.178)" fill="#2f2d51"></path><path d="M394.145,248.806a.439.439,0,0,0,0-.879h-1.263a.439.439,0,0,0-.439.439v3a.439.439,0,0,0,.439.439h1.263a.439.439,0,0,0,0-.879h-.823V250.3h.73a.439.439,0,0,0,0-.879h-.73v-.619h.823Z" transform="translate(-369.448 -233.4)" fill="#2f2d51"></path><path d="M284.143,249.256c-.361-.133-.7-.278-.812-.328a.148.148,0,0,1-.046-.135.245.245,0,0,1,.2-.192.945.945,0,0,1,.776.181.439.439,0,0,0,.563-.675,1.828,1.828,0,0,0-1.592-.348,1.124,1.124,0,0,0-.814.909,1.022,1.022,0,0,0,.456,1.012.441.441,0,0,0,.061.033c.018.008.436.194.907.368.092.034.39.159.357.343a.456.456,0,0,1-.468.293.991.991,0,0,1-.728-.3.439.439,0,0,0-.651.59,1.857,1.857,0,0,0,1.379.593,1.308,1.308,0,0,0,1.333-1.018A1.2,1.2,0,0,0,284.143,249.256Z" transform="translate(-265.698 -233.18)" fill="#2f2d51"></path><path d="M339.963,247.691h-1.67a.439.439,0,0,0,0,.879h.392v2.584a.439.439,0,1,0,.879,0V248.57h.4a.439.439,0,0,0,0-.879Z" transform="translate(-318.058 -233.178)" fill="#2f2d51"></path><path d="M211.028,247.691a1.951,1.951,0,1,0,1.951,1.951A1.954,1.954,0,0,0,211.028,247.691Zm0,3.024a1.073,1.073,0,1,1,1.072-1.072A1.074,1.074,0,0,1,211.028,250.715Z" transform="translate(-196.826 -233.178)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Girls Hostel</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="29.832" viewBox="0 0 30 29.832"><g transform="translate(0 -0.499)"><path d="M75.178,18.1l1.763-.112h.009a4.15,4.15,0,0,0,3.094-1.806l1.393-2.044A8.249,8.249,0,0,0,82.76,8.081a1.861,1.861,0,0,0-1.746-1.548,8.247,8.247,0,0,0-5.85,2.039L73.3,10.2a4.151,4.151,0,0,0-1.422,3.288s0,.006,0,.009l.1,1.763a2.481,2.481,0,0,1-.69,1.859L56.737,32.069a2.114,2.114,0,0,0-.566,1.569A2.431,2.431,0,0,0,58.634,36q.1,0,.193-.008a2.115,2.115,0,0,0,1.492-.753L73.414,19.005A2.482,2.482,0,0,1,75.178,18.1Zm-2.463.343L59.622,34.674a1.224,1.224,0,0,1-.866.424,1.536,1.536,0,0,1-1.686-1.5,1.222,1.222,0,0,1,.314-.908L71.935,17.746a3.384,3.384,0,0,0,.943-2.536l-.1-1.759a3.255,3.255,0,0,1,1.115-2.574l1.863-1.628a7.358,7.358,0,0,1,5.216-1.818.963.963,0,0,1,.9.8,7.354,7.354,0,0,1-1.179,5.4L79.3,15.671a3.256,3.256,0,0,1-2.422,1.416l-1.758.111A3.386,3.386,0,0,0,72.715,18.439Zm0,0" transform="translate(-52.877 -5.671)" fill="#2f2d51"></path><path d="M301.885,295.9l-9.757-8.887a.45.45,0,1,0-.606.665l9.755,8.885a1.224,1.224,0,0,1,.371.89,1.536,1.536,0,0,1-1.594,1.594,1.223,1.223,0,0,1-.888-.368l-8.694-9.545a.45.45,0,1,0-.665.606l8.7,9.548a2.114,2.114,0,0,0,1.533.66h.047a2.434,2.434,0,0,0,2.463-2.511A2.117,2.117,0,0,0,301.885,295.9Zm0,0" transform="translate(-272.715 -269.62)" fill="#2f2d51"></path><path d="M5.427,12.34a4.164,4.164,0,0,0,2.723,1.1h.009l1.766.005a2.481,2.481,0,0,1,1.815.8l.778.854a.45.45,0,1,0,.665-.606L12.4,13.64a3.384,3.384,0,0,0-2.475-1.093l-1.761-.005A3.268,3.268,0,0,1,6.057,11.7L.939,5.613a.155.155,0,0,1,.229-.21l4.659,4.659a1.182,1.182,0,0,0,1.67,0l.547-.547h0l.972-.972h0l.547-.547a1.183,1.183,0,0,0,0-1.67L4.9,1.666a.155.155,0,0,1,.21-.229L11.2,6.555a3.266,3.266,0,0,1,.845,2.11l.005,1.761A3.387,3.387,0,0,0,13.143,12.9l.834.759A.45.45,0,1,0,14.582,13l-.832-.758a2.482,2.482,0,0,1-.8-1.816l-.005-1.766s0-.006,0-.01a4.164,4.164,0,0,0-1.1-2.723.449.449,0,0,0-.041-.04L5.694.749A1.055,1.055,0,0,0,4.269,2.3L8.928,6.96a.282.282,0,0,1,0,.4l-.23.229L3.506,2.4a.45.45,0,1,0-.636.636L8.062,8.224l-.336.336L2.534,3.369A.45.45,0,0,0,1.9,4L7.09,9.2l-.229.23a.282.282,0,0,1-.4,0L1.8,4.768A1.055,1.055,0,0,0,.25,6.192L5.388,12.3A.419.419,0,0,0,5.427,12.34Zm0,0" transform="translate(0)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Mess</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path d="M15,0H8.5A.5.5,0,0,0,8,.5V4H.5a.5.5,0,0,0-.5.5v25a.5.5,0,0,0,.5.5H15a.5.5,0,0,0,.5-.5V.5A.5.5,0,0,0,15,0Zm-.5,26H9V25h5.5ZM1,7.5H8v15H1Zm13.5-2H9V4h5.5ZM1,23.5H8V25H1ZM9,24V6.5h5.5V24ZM14.5,1V3H9V1ZM8,5V6.5H1V5ZM1,26H8v3H1Zm8,3V27h5.5v2Zm0,0" fill="#2f2d51"></path><path d="M262.482,87.375l-6-23a.5.5,0,0,0-.613-.357l-7.5,2a.5.5,0,0,0-.355.609l6,23a.5.5,0,0,0,.613.356l7.5-2A.5.5,0,0,0,262.482,87.375ZM249.9,69.91l6.534-1.742.235.9-6.533,1.745Zm7.021.128,2.9,11.124L253.294,82.9l-2.9-11.125ZM260.08,82.13l.512,1.962-6.534,1.742-.51-1.961Zm-4.439-17.016.544,2.087-6.534,1.741-.544-2.086Zm-.786,23.775L254.31,86.8l6.534-1.742.544,2.086Zm0,0" transform="translate(-232.498 -60.001)" fill="#2f2d51"></path><path d="M36.5,144h-4a.5.5,0,0,0-.5.5v4a.5.5,0,0,0,.5.5h4a.5.5,0,0,0,.5-.5v-4A.5.5,0,0,0,36.5,144Zm-.5,4H33v-3h3Zm0,0" transform="translate(-30 -135)" fill="#2f2d51"></path></svg>
+                                    <span class="ms-4">Library</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g transform="translate(-4 -4)"><path d="M4.75,34h28.5a.75.75,0,0,0,.75-.75v-18a.75.75,0,0,0-.75-.75H29.5V7.75A.75.75,0,0,0,28.75,7H25V6.25A2.25,2.25,0,0,0,22.75,4h-7.5A2.25,2.25,0,0,0,13,6.25V7H9.25a.75.75,0,0,0-.75.75V14.5H4.75a.75.75,0,0,0-.75.75v18A.75.75,0,0,0,4.75,34ZM29.5,16h3V32.5h-3ZM21.25,32.5h-4.5V27.25h4.5ZM14.5,6.25a.75.75,0,0,1,.75-.75h7.5a.75.75,0,0,1,.75.75v7.5a.75.75,0,0,1-.75.75h-7.5a.75.75,0,0,1-.75-.75ZM10,8.5h3v5.25A2.25,2.25,0,0,0,15.25,16h7.5A2.25,2.25,0,0,0,25,13.75V8.5h3v24H22.75v-6a.75.75,0,0,0-.75-.75H16a.75.75,0,0,0-.75.75v6H10ZM5.5,16h3V32.5h-3Z" fill="#2f2d51"></path><path d="M20.75,11.75h1.5v1.5a.75.75,0,0,0,1.5,0v-1.5h1.5a.75.75,0,0,0,0-1.5h-1.5V8.75a.75.75,0,0,0-1.5,0v1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-4 -1)" fill="#2f2d51"></path><path d="M16.75,24.5h1.5a.75.75,0,0,0,0-1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-3 -4.75)" fill="#2f2d51"></path><path d="M19,28.75a.75.75,0,0,0-.75-.75h-1.5a.75.75,0,0,0,0,1.5h1.5A.75.75,0,0,0,19,28.75Z" transform="translate(-3 -6)" fill="#2f2d51"></path><path d="M22.75,24.5h1.5a.75.75,0,0,0,0-1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-4.5 -4.75)" fill="#2f2d51"></path><path d="M22.75,29.5h1.5a.75.75,0,0,0,0-1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-4.5 -6)" fill="#2f2d51"></path><path d="M28.75,24.5h1.5a.75.75,0,0,0,0-1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-6 -4.75)" fill="#2f2d51"></path><path d="M28.75,29.5h1.5a.75.75,0,0,0,0-1.5h-1.5a.75.75,0,0,0,0,1.5Z" transform="translate(-6 -6)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Medical Facilities</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g transform="translate(3.39)"><path d="M61.268,0A3.848,3.848,0,0,0,57.4,3.815a3.869,3.869,0,1,0,7.736,0A3.844,3.844,0,0,0,61.268,0Zm0,6.774a2.973,2.973,0,0,1-2.906-2.959,2.906,2.906,0,0,1,5.811,0A2.969,2.969,0,0,1,61.268,6.774Z" transform="translate(-57.4)" fill="#2f2d51"></path></g><g transform="translate(0 5.321)"><path d="M30,99.779V90.1H15.484v9.679h3.39v.969H13.553V96.4a4.6,4.6,0,0,0-3.077-4.169A5.8,5.8,0,0,1,7.264,93.49a5.077,5.077,0,0,1-3.213-1.264A4.524,4.524,0,0,0,.974,96.4v4.352H0v13.063H1.937v.969h.969v-.969H27.1v.969h.969v-.969H30V100.748H26.61v-.969ZM1.937,96.389a3.409,3.409,0,0,1,1.949-3.065,5.741,5.741,0,0,0,3.372,1.128,5.7,5.7,0,0,0,3.372-1.128,3.409,3.409,0,0,1,1.949,3.065v4.352H11.61V96.389h-.969v4.352H3.868V96.389H2.906v4.352H1.937Zm27.094,16.453H.969v-7.258H29.031Zm0-11.126v2.906H.969v-2.906Zm-9.195-.969v-.969h5.805v.969Zm-3.384-1.937V91.068H29.031v7.742Z" transform="translate(0 -90.1)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Classroom</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="27" viewBox="0 0 30 27"><path d="M28.5,4.5H22v-2A2.5,2.5,0,0,0,19.5,0h-9A2.5,2.5,0,0,0,8,2.5v2H1.5A1.5,1.5,0,0,0,0,6V17.13a1.507,1.507,0,0,0,1,1.412V25.5A1.5,1.5,0,0,0,2.5,27h25A1.5,1.5,0,0,0,29,25.5V18.542a1.507,1.507,0,0,0,1-1.412V6A1.5,1.5,0,0,0,28.5,4.5ZM9,2.5A1.5,1.5,0,0,1,10.5,1h9A1.5,1.5,0,0,1,21,2.5v2H20v-2a.5.5,0,0,0-.5-.5h-9a.5.5,0,0,0-.5.5v2H9Zm10,2H11V3h8Zm9,21a.5.5,0,0,1-.5.5H2.5a.5.5,0,0,1-.5-.5V18.713L13,20.23V21.5A1.5,1.5,0,0,0,14.5,23h1A1.5,1.5,0,0,0,17,21.5V20.23l11-1.517Zm-12-4a.5.5,0,0,1-.5.5h-1a.5.5,0,0,1-.5-.5v-3a.5.5,0,0,1,.5-.5h1a.5.5,0,0,1,.5.5Zm13-4.37a.5.5,0,0,1-.43.5l-.139.019L17,19.221V18.5A1.5,1.5,0,0,0,15.5,17h-1A1.5,1.5,0,0,0,13,18.5v.721l-11.57-1.6a.5.5,0,0,1-.43-.5V6a.5.5,0,0,1,.5-.5h27A.5.5,0,0,1,29,6Zm0,0" fill="#2f2d51"></path></svg>
+                                    <span class="ms-4">Placements</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30.001" height="30" viewBox="0 0 30.001 30"><g transform="translate(0 -0.422)"><path d="M352.874,8.475a4.027,4.027,0,1,0-4.027-4.027A4.027,4.027,0,0,0,352.874,8.475Zm0-7.046a3.02,3.02,0,1,1-3.02,3.02A3.02,3.02,0,0,1,352.874,1.429Zm0,0" transform="translate(-326.9)" fill="#2f2d51"></path><path d="M106.613,32.352a2.214,2.214,0,0,0,1.57-.649l4.541-4.542,3.031,3.031a2.22,2.22,0,0,0,3.14,0l0,0a2.223,2.223,0,0,0,0-3.139l-4.4-4.394a2.516,2.516,0,0,0-3.558,0l-5.9,5.9a2.221,2.221,0,0,0,1.572,3.791Zm-.861-3.077,5.9-5.907a1.51,1.51,0,0,1,2.135,0l4.395,4.4a1.215,1.215,0,0,1,0,1.715l0,0a1.215,1.215,0,0,1-1.716,0L113.08,26.1a.5.5,0,0,0-.712,0l-4.9,4.9a1.241,1.241,0,0,1-1.719,0A1.215,1.215,0,0,1,105.752,29.275Zm0,0" transform="translate(-97.823 -20.145)" fill="#2f2d51"></path><path d="M309.907,163.445h-5.033v-2.517a.5.5,0,0,0-.859-.356l-3.02,3.02a.5.5,0,0,0-.147.356v2.013a1.51,1.51,0,0,0,1.51,1.51h7.55a2.013,2.013,0,0,0,0-4.027Zm0,3.02h-7.55a.5.5,0,0,1-.5-.5v-1.8l2.013-2.013v1.8a.5.5,0,0,0,.5.5h5.537a1.007,1.007,0,1,1,0,2.013Zm0,0" transform="translate(-281.92 -149.937)" fill="#2f2d51"></path><path d="M12.751,274.919l-2.43-2.43a.518.518,0,0,0-.712,0L.65,281.448a2.219,2.219,0,0,0,0,3.139v0a2.222,2.222,0,0,0,3.139,0l8.959-8.959A.5.5,0,0,0,12.751,274.919Zm-9.672,8.959a1.214,1.214,0,0,1-1.715,0h0a1.212,1.212,0,0,1,0-1.715l8.6-8.606,1.718,1.719Zm0,0" transform="translate(0 -254.818)" fill="#2f2d51"></path><path d="M168.4,219.883a2.223,2.223,0,1,0-3.143,3.143l3.932,3.931-4.769,2.541a2.215,2.215,0,0,0-.827,3.017l.072.132a2.233,2.233,0,0,0,1.934,1.115,2.176,2.176,0,0,0,1.086-.289l6.208-3.339.805-.463a2.516,2.516,0,0,0,.528-3.963Zm5.544,7.808a1.5,1.5,0,0,1-.745,1.107l-7,3.8a1.217,1.217,0,0,1-1.653-.437l-.072-.132a1.211,1.211,0,0,1,.435-1.645l5.356-2.853a.5.5,0,0,0,.119-.8l-4.412-4.412a1.216,1.216,0,0,1,1.72-1.72l5.829,5.828A1.5,1.5,0,0,1,173.946,227.691Zm0,0" transform="translate(-153.031 -205.022)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Sports</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><g transform="translate(-1 -1)"><path d="M29.7,8.174H21.87V2.3a1.3,1.3,0,0,0-.443-.969l0,0A1.3,1.3,0,0,0,20.565,1h-9.13a1.3,1.3,0,0,0-.859.331l0,0a1.3,1.3,0,0,0-.443.969v5.87H2.3A1.306,1.306,0,0,0,1,9.478v1.957a1.306,1.306,0,0,0,1.3,1.3v16.3A1.959,1.959,0,0,0,4.261,31H27.739A1.959,1.959,0,0,0,29.7,29.043v-16.3a1.306,1.306,0,0,0,1.3-1.3V9.478a1.306,1.306,0,0,0-1.3-1.3ZM19.254,2.309,16,4.75,12.74,2.305ZM15.609,6.087a.652.652,0,0,0,.783,0l4.174-3.13v5.87h-9.13l0-5.872ZM25.13,29.7H18.609V18.609H25.13Zm3.261-.652a.653.653,0,0,1-.652.652h-1.3V17.957a.652.652,0,0,0-.652-.652H17.957a.652.652,0,0,0-.652.652V29.7H4.261a.653.653,0,0,1-.652-.652v-16.3H28.391Zm1.3-17.609H2.3V9.478h8.008a1.3,1.3,0,0,0,1.123.652h9.13a1.3,1.3,0,0,0,1.123-.652H29.7ZM6.217,25.13H14.7a.652.652,0,0,0,.652-.652V17.957A.652.652,0,0,0,14.7,17.3H6.217a.652.652,0,0,0-.652.652v6.522A.652.652,0,0,0,6.217,25.13Zm.652-6.522h7.174v5.217H6.87Z" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Post Office</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="27.107" height="30" viewBox="0 0 27.107 30"><g transform="translate(-4.809 -1.78)"><g transform="translate(4.809 1.78)"><path d="M27.291,4.3a.462.462,0,0,0,.462-.462v-1.6a.462.462,0,1,0-.923,0v1.6A.456.456,0,0,0,27.291,4.3Z" transform="translate(-16.243 -1.78)" fill="#2f2d51"></path><path d="M14.99,7.221a.46.46,0,0,0,.4.231.451.451,0,0,0,.231-.062.459.459,0,0,0,.168-.63l-.8-1.389a.461.461,0,0,0-.8.462Z" transform="translate(-9.648 -3.524)" fill="#2f2d51"></path><path d="M6.886,15.255l-1.385-.8a.461.461,0,1,0-.462.8l1.385.8a.459.459,0,0,0,.63-.168A.46.46,0,0,0,6.886,15.255Z" transform="translate(-4.809 -8.327)" fill="#2f2d51"></path><path d="M46.341,16.255a.451.451,0,0,0,.231-.062l1.385-.8a.461.461,0,1,0-.462-.8l-1.385.8a.461.461,0,0,0,.231.861Z" transform="translate(-26.133 -8.399)" fill="#2f2d51"></path><path d="M38.07,7.474a.459.459,0,0,0,.63-.168l.8-1.385a.461.461,0,1,0-.8-.462l-.8,1.385A.46.46,0,0,0,38.07,7.474Z" transform="translate(-21.959 -3.571)" fill="#2f2d51"></path><path d="M40.064,23.613a4.829,4.829,0,0,0-3,6.125.463.463,0,0,0,.438.313.536.536,0,0,0,.149-.024.464.464,0,0,0,.288-.587,3.9,3.9,0,0,1,2.428-4.952.462.462,0,1,0-.3-.875Z" transform="translate(-21.419 -13.103)" fill="#2f2d51"></path><path d="M31.7,26.992a6.9,6.9,0,0,0-5.827-12.279,8.479,8.479,0,0,0-13.2-1.933,8.421,8.421,0,0,0-2.649,6.163,8.522,8.522,0,0,0,1.952,5.418,6.759,6.759,0,0,1,1.563,4.308V30.3h-.856a.462.462,0,0,0,0,.923h.856V32.93a.462.462,0,0,0,.462.462h1.413a3.109,3.109,0,0,0,6.192,0h1.413a.462.462,0,0,0,.462-.462V31.449h.856a.462.462,0,0,0,0-.923h-.856V28.891a.364.364,0,0,0,.014-.077V28.66a6.594,6.594,0,0,1,.226-1.7,7.321,7.321,0,0,0,.957.577,6.879,6.879,0,0,0,3.034.707c.106,0,.207-.01.313-.014l1.62,6.236a2.419,2.419,0,0,0,2.351,1.817,2.464,2.464,0,0,0,.788-.13A2.425,2.425,0,0,0,34.222,32.9Zm-19.01-3.216a7.593,7.593,0,0,1-1.74-4.827,7.571,7.571,0,0,1,7.981-7.562,7.593,7.593,0,0,1,6.058,3.639A6.884,6.884,0,0,0,21.2,23.583a6.918,6.918,0,0,0,1.76,2.755,7.512,7.512,0,0,0-.37,2.024h-1.88V21.636s0-.01,0-.019a.345.345,0,0,0-.029-.139c0-.01,0-.024-.01-.034a.029.029,0,0,1,0-.019l-1.837-3.611a.481.481,0,0,0-.822,0l-1.837,3.611a.029.029,0,0,0,0,.019.069.069,0,0,0-.01.034.481.481,0,0,0-.029.139s0,.01,0,.019v6.726H14.467a7.766,7.766,0,0,0-1.779-4.587Zm6.178,4.587V22.1h.909v6.264h-.909Zm-1.543-7.187,1.082-2.13,1.082,2.13Zm-.293.928h.909v6.264H17.03ZM18.51,35.3a2.19,2.19,0,0,1-2.168-1.9h4.337A2.19,2.19,0,0,1,18.51,35.3Zm-4.048-2.827V29.29h8.1v3.188Zm10.63-5.76a5.976,5.976,0,1,1,4.563.288,5.95,5.95,0,0,1-4.562-.288Zm8.284,7.764a1.512,1.512,0,0,1-2.1.712,1.505,1.505,0,0,1-.745-.947l-1.587-6.111a7.194,7.194,0,0,0,1-.255,6.585,6.585,0,0,0,.942-.413l2.486,5.808A1.449,1.449,0,0,1,33.376,34.482Z" transform="translate(-7.514 -6.281)" fill="#2f2d51"></path></g></g></svg>
+                                    <span class="ms-4">R & D</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg width="30" height="30" viewBox="0 -4 512.00045 512" xmlns="http://www.w3.org/2000/svg"><path d="m212.882812 111.867188h-75.871093c-6.894531 0-12.5 5.605468-12.5 12.5v123.933593c0 6.890625 5.605469 12.5 12.5 12.5h75.871093c6.894532 0 12.5-5.609375 12.5-12.5v-123.933593c0-6.894532-5.605468-12.5-12.5-12.5zm-45.4375 133.933593h-27.933593v-30.671875h27.933593zm0-45.671875h-27.933593v-27.59375h27.933593zm0-42.59375h-27.933593v-30.667968h27.933593zm42.9375 88.265625h-27.9375v-30.671875h27.9375zm0-45.671875h-27.9375v-27.59375h27.9375zm0-42.59375h-27.9375v-30.667968h27.9375zm0 0"></path><path d="m313.472656 411.296875c-4.144531 0-7.5 3.359375-7.5 7.5v18.007813c0 4.140624 3.355469 7.5 7.5 7.5 4.144532 0 7.5-3.359376 7.5-7.5v-18.007813c0-4.140625-3.355468-7.5-7.5-7.5zm0 0"></path><path d="m511.929688 335.554688c-.347657-2.632813-1.695313-4.980469-3.792969-6.605469l-158.894531-122.941407c-3.523438-2.722656-7.734376-4.164062-12.179688-4.164062-4.449219 0-8.660156 1.441406-12.1875 4.167969l-24.03125 18.59375v-21.539063c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v33.144532l-119.851562 92.734374c-2.085938 1.609376-3.472657 4.035157-3.800782 6.640626-.339844 2.636718.367188 5.253906 1.988282 7.367187l12.160156 15.816406c1.910156 2.472657 4.792968 3.890625 7.914062 3.890625 2.195313 0 4.363282-.738281 6.105469-2.085937l146.703125-113.507813 110.886719 85.796875v156.265625h-60.40625v-14.0625c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v14.0625h-70.972657v-114.898437h70.972657v65.585937c0 4.144532 3.355469 7.5 7.5 7.5s7.5-3.355468 7.5-7.5v-68.085937c0-6.890625-5.609375-12.5-12.5-12.5h-75.96875c-6.894531 0-12.503907 5.609375-12.503907 12.5v117.398437h-56.992187v-20.457031c0-6.894531-5.605469-12.5-12.5-12.5h-7.179687c.597656-2.984375.921874-6.066406.921874-9.222656 0-25.957031-21.121093-47.074219-47.078124-47.074219-14.089844 0-27.273438 6.464844-36.089844 16.949219-3.335938-1.054688-6.882813-1.628907-10.5625-1.628907-2.703125 0-5.359375.300782-7.941406.902344-8.167969-13.992187-23.410157-22.992187-39.886719-22.992187-1.753907 0-3.488281.109375-5.199219.308593v-251.054687l110.890625-85.804687 110.894531 85.804687v25.703125c0 4.144531 3.355469 7.5 7.5 7.5 4.140625 0 7.5-3.355469 7.5-7.5v-14.097656l20.8125 16.101562c1.738282 1.347656 3.90625 2.085938 6.101563 2.085938 3.128906 0 6.015625-1.421875 7.917969-3.898438.027343-.035156.054687-.074218.082031-.109375l11.648437-15.734375.074219-.09375c.769531-.964844 2.8125-3.523437 2.335937-7.269531-.347656-2.644531-1.699218-4.992187-3.792968-6.605469l-158.890625-122.941406c-3.523438-2.722656-7.734375-4.164062-12.183594-4.164062s-8.660156 1.441406-12.1875 4.167968l-43.625 33.753906v-9.453124c5.898437-1 10.40625-6.132813 10.40625-12.308594v-14.996094c0-6.894531-5.609375-12.5-12.5-12.5h-60.777344c-6.890625 0-12.5 5.605469-12.5 12.5v14.992188c0 6.179687 4.507813 11.308593 10.40625 12.3125v59.71875l-50.28125 38.90625c-2.09375 1.609374-3.480469 4.039062-3.8085935 6.636718-.3437495 2.640625.3593745 5.257813 1.9843745 7.375l12.160157 15.816406c1.90625 2.476563 4.789062 3.894532 7.914062 3.894532 2.195313 0 4.359375-.738282 6.109375-2.085938l20.808594-16.101562v243.859375c-11.90625 5.859375-21.074219 16.71875-24.480469 29.964843-11.308593 4.359376-19.078125 15.34375-19.078125 27.8125 0 1.375.097656 2.726563.277344 4.054688-2.378906 2.277344-3.863281 5.472656-3.863281 9.015625v22.960937c0 6.890626 5.605469 12.5 12.5 12.5h470.269531c4.144531 0 7.5-3.359374 7.5-7.5 0-4.144531-3.355469-7.5-7.5-7.5h-21.738281v-144.664062l20.816406 16.105469c1.738281 1.34375 3.90625 2.085937 6.101563 2.085937 3.128906 0 6.015624-1.421875 7.917968-3.902344.027344-.035156.054688-.070312.082032-.105468l11.652343-15.738282.078125-.097656c.765625-.960937 2.804688-3.519531 2.332032-7.261718zm-348.1875 79.320312c17.6875 0 32.078124 14.390625 32.078124 32.074219 0 3.207031-.484374 6.300781-1.363281 9.222656h-42.78125c.324219-1.90625.503907-3.867187.503907-5.867187 0-10.175782-4.355469-19.347657-11.289063-25.769532 5.929687-6.019531 14.132813-9.660156 22.851563-9.660156zm-104.972657-399.875h55.777344v9.992188h-55.777344zm45.371094 24.992188v20.871093l-34.964844 27.054688v-47.925781zm-81.085937 115.132812-6.050782-7.871094 154.9375-119.886718c.886719-.683594 1.898438-1.03125 3.011719-1.03125s2.125.347656 3.007813 1.027343l154.726562 119.722657-5.90625 7.980468-147.238281-113.925781c-2.703125-2.089844-6.476563-2.089844-9.179688 0zm191.523437 334.007812h-197.660156v-17.960937h69.085937c4.140625 0 7.5-3.355469 7.5-7.5s-3.359375-7.5-7.5-7.5h-65.480468c-.007813-.191406-.019532-.378906-.019532-.570313 0-7.074218 5.027344-13.1875 11.960938-14.53125 3.136718-.609374 5.542968-3.136718 5.996094-6.296874 2.1875-15.199219 15.429687-26.664063 30.800781-26.664063 12.765625 0 24.4375 8.011719 29.042969 19.933594.75 1.945312 2.273437 3.488281 4.210937 4.265625 1.9375.773437 4.105469.703125 5.992187-.1875 2.695313-1.273438 5.585938-1.921875 8.582032-1.921875 11.078125 0 20.089844 9.019531 20.089844 20.109375 0 2.042968-.320313 4.007812-.890626 5.863281h-14.285156c-4.144531 0-7.5 3.359375-7.5 7.5 0 4.144531 3.355469 7.5 7.5 7.5h92.574219zm274.3125-143.558593-147.238281-113.921875c-2.703125-2.09375-6.476563-2.09375-9.179688 0l-147.3125 113.980468-6.050781-7.871093 154.941406-119.882813c.886719-.6875 1.898438-1.035156 3.011719-1.035156 1.109375 0 2.125.347656 3.007812 1.03125l154.726563 119.71875zm0 0"></path></svg>
+                                    <span class="ms-4">Residential Institute</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg width="30" height="30" viewBox="0 -4 512.00045 512" xmlns="http://www.w3.org/2000/svg"><path d="m212.882812 111.867188h-75.871093c-6.894531 0-12.5 5.605468-12.5 12.5v123.933593c0 6.890625 5.605469 12.5 12.5 12.5h75.871093c6.894532 0 12.5-5.609375 12.5-12.5v-123.933593c0-6.894532-5.605468-12.5-12.5-12.5zm-45.4375 133.933593h-27.933593v-30.671875h27.933593zm0-45.671875h-27.933593v-27.59375h27.933593zm0-42.59375h-27.933593v-30.667968h27.933593zm42.9375 88.265625h-27.9375v-30.671875h27.9375zm0-45.671875h-27.9375v-27.59375h27.9375zm0-42.59375h-27.9375v-30.667968h27.9375zm0 0"></path><path d="m313.472656 411.296875c-4.144531 0-7.5 3.359375-7.5 7.5v18.007813c0 4.140624 3.355469 7.5 7.5 7.5 4.144532 0 7.5-3.359376 7.5-7.5v-18.007813c0-4.140625-3.355468-7.5-7.5-7.5zm0 0"></path><path d="m511.929688 335.554688c-.347657-2.632813-1.695313-4.980469-3.792969-6.605469l-158.894531-122.941407c-3.523438-2.722656-7.734376-4.164062-12.179688-4.164062-4.449219 0-8.660156 1.441406-12.1875 4.167969l-24.03125 18.59375v-21.539063c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v33.144532l-119.851562 92.734374c-2.085938 1.609376-3.472657 4.035157-3.800782 6.640626-.339844 2.636718.367188 5.253906 1.988282 7.367187l12.160156 15.816406c1.910156 2.472657 4.792968 3.890625 7.914062 3.890625 2.195313 0 4.363282-.738281 6.105469-2.085937l146.703125-113.507813 110.886719 85.796875v156.265625h-60.40625v-14.0625c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v14.0625h-70.972657v-114.898437h70.972657v65.585937c0 4.144532 3.355469 7.5 7.5 7.5s7.5-3.355468 7.5-7.5v-68.085937c0-6.890625-5.609375-12.5-12.5-12.5h-75.96875c-6.894531 0-12.503907 5.609375-12.503907 12.5v117.398437h-56.992187v-20.457031c0-6.894531-5.605469-12.5-12.5-12.5h-7.179687c.597656-2.984375.921874-6.066406.921874-9.222656 0-25.957031-21.121093-47.074219-47.078124-47.074219-14.089844 0-27.273438 6.464844-36.089844 16.949219-3.335938-1.054688-6.882813-1.628907-10.5625-1.628907-2.703125 0-5.359375.300782-7.941406.902344-8.167969-13.992187-23.410157-22.992187-39.886719-22.992187-1.753907 0-3.488281.109375-5.199219.308593v-251.054687l110.890625-85.804687 110.894531 85.804687v25.703125c0 4.144531 3.355469 7.5 7.5 7.5 4.140625 0 7.5-3.355469 7.5-7.5v-14.097656l20.8125 16.101562c1.738282 1.347656 3.90625 2.085938 6.101563 2.085938 3.128906 0 6.015625-1.421875 7.917969-3.898438.027343-.035156.054687-.074218.082031-.109375l11.648437-15.734375.074219-.09375c.769531-.964844 2.8125-3.523437 2.335937-7.269531-.347656-2.644531-1.699218-4.992187-3.792968-6.605469l-158.890625-122.941406c-3.523438-2.722656-7.734375-4.164062-12.183594-4.164062s-8.660156 1.441406-12.1875 4.167968l-43.625 33.753906v-9.453124c5.898437-1 10.40625-6.132813 10.40625-12.308594v-14.996094c0-6.894531-5.609375-12.5-12.5-12.5h-60.777344c-6.890625 0-12.5 5.605469-12.5 12.5v14.992188c0 6.179687 4.507813 11.308593 10.40625 12.3125v59.71875l-50.28125 38.90625c-2.09375 1.609374-3.480469 4.039062-3.8085935 6.636718-.3437495 2.640625.3593745 5.257813 1.9843745 7.375l12.160157 15.816406c1.90625 2.476563 4.789062 3.894532 7.914062 3.894532 2.195313 0 4.359375-.738282 6.109375-2.085938l20.808594-16.101562v243.859375c-11.90625 5.859375-21.074219 16.71875-24.480469 29.964843-11.308593 4.359376-19.078125 15.34375-19.078125 27.8125 0 1.375.097656 2.726563.277344 4.054688-2.378906 2.277344-3.863281 5.472656-3.863281 9.015625v22.960937c0 6.890626 5.605469 12.5 12.5 12.5h470.269531c4.144531 0 7.5-3.359374 7.5-7.5 0-4.144531-3.355469-7.5-7.5-7.5h-21.738281v-144.664062l20.816406 16.105469c1.738281 1.34375 3.90625 2.085937 6.101563 2.085937 3.128906 0 6.015624-1.421875 7.917968-3.902344.027344-.035156.054688-.070312.082032-.105468l11.652343-15.738282.078125-.097656c.765625-.960937 2.804688-3.519531 2.332032-7.261718zm-348.1875 79.320312c17.6875 0 32.078124 14.390625 32.078124 32.074219 0 3.207031-.484374 6.300781-1.363281 9.222656h-42.78125c.324219-1.90625.503907-3.867187.503907-5.867187 0-10.175782-4.355469-19.347657-11.289063-25.769532 5.929687-6.019531 14.132813-9.660156 22.851563-9.660156zm-104.972657-399.875h55.777344v9.992188h-55.777344zm45.371094 24.992188v20.871093l-34.964844 27.054688v-47.925781zm-81.085937 115.132812-6.050782-7.871094 154.9375-119.886718c.886719-.683594 1.898438-1.03125 3.011719-1.03125s2.125.347656 3.007813 1.027343l154.726562 119.722657-5.90625 7.980468-147.238281-113.925781c-2.703125-2.089844-6.476563-2.089844-9.179688 0zm191.523437 334.007812h-197.660156v-17.960937h69.085937c4.140625 0 7.5-3.355469 7.5-7.5s-3.359375-7.5-7.5-7.5h-65.480468c-.007813-.191406-.019532-.378906-.019532-.570313 0-7.074218 5.027344-13.1875 11.960938-14.53125 3.136718-.609374 5.542968-3.136718 5.996094-6.296874 2.1875-15.199219 15.429687-26.664063 30.800781-26.664063 12.765625 0 24.4375 8.011719 29.042969 19.933594.75 1.945312 2.273437 3.488281 4.210937 4.265625 1.9375.773437 4.105469.703125 5.992187-.1875 2.695313-1.273438 5.585938-1.921875 8.582032-1.921875 11.078125 0 20.089844 9.019531 20.089844 20.109375 0 2.042968-.320313 4.007812-.890626 5.863281h-14.285156c-4.144531 0-7.5 3.359375-7.5 7.5 0 4.144531 3.355469 7.5 7.5 7.5h92.574219zm274.3125-143.558593-147.238281-113.921875c-2.703125-2.09375-6.476563-2.09375-9.179688 0l-147.3125 113.980468-6.050781-7.871093 154.941406-119.882813c.886719-.6875 1.898438-1.035156 3.011719-1.035156 1.109375 0 2.125.347656 3.007812 1.03125l154.726563 119.71875zm0 0"></path></svg>
+                                    <span class="ms-4">Residential Zone</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg width="30" height="30" viewBox="0 -4 512.00045 512" xmlns="http://www.w3.org/2000/svg"><path d="m212.882812 111.867188h-75.871093c-6.894531 0-12.5 5.605468-12.5 12.5v123.933593c0 6.890625 5.605469 12.5 12.5 12.5h75.871093c6.894532 0 12.5-5.609375 12.5-12.5v-123.933593c0-6.894532-5.605468-12.5-12.5-12.5zm-45.4375 133.933593h-27.933593v-30.671875h27.933593zm0-45.671875h-27.933593v-27.59375h27.933593zm0-42.59375h-27.933593v-30.667968h27.933593zm42.9375 88.265625h-27.9375v-30.671875h27.9375zm0-45.671875h-27.9375v-27.59375h27.9375zm0-42.59375h-27.9375v-30.667968h27.9375zm0 0"></path><path d="m313.472656 411.296875c-4.144531 0-7.5 3.359375-7.5 7.5v18.007813c0 4.140624 3.355469 7.5 7.5 7.5 4.144532 0 7.5-3.359376 7.5-7.5v-18.007813c0-4.140625-3.355468-7.5-7.5-7.5zm0 0"></path><path d="m511.929688 335.554688c-.347657-2.632813-1.695313-4.980469-3.792969-6.605469l-158.894531-122.941407c-3.523438-2.722656-7.734376-4.164062-12.179688-4.164062-4.449219 0-8.660156 1.441406-12.1875 4.167969l-24.03125 18.59375v-21.539063c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v33.144532l-119.851562 92.734374c-2.085938 1.609376-3.472657 4.035157-3.800782 6.640626-.339844 2.636718.367188 5.253906 1.988282 7.367187l12.160156 15.816406c1.910156 2.472657 4.792968 3.890625 7.914062 3.890625 2.195313 0 4.363282-.738281 6.105469-2.085937l146.703125-113.507813 110.886719 85.796875v156.265625h-60.40625v-14.0625c0-4.144531-3.355469-7.5-7.5-7.5s-7.5 3.355469-7.5 7.5v14.0625h-70.972657v-114.898437h70.972657v65.585937c0 4.144532 3.355469 7.5 7.5 7.5s7.5-3.355468 7.5-7.5v-68.085937c0-6.890625-5.609375-12.5-12.5-12.5h-75.96875c-6.894531 0-12.503907 5.609375-12.503907 12.5v117.398437h-56.992187v-20.457031c0-6.894531-5.605469-12.5-12.5-12.5h-7.179687c.597656-2.984375.921874-6.066406.921874-9.222656 0-25.957031-21.121093-47.074219-47.078124-47.074219-14.089844 0-27.273438 6.464844-36.089844 16.949219-3.335938-1.054688-6.882813-1.628907-10.5625-1.628907-2.703125 0-5.359375.300782-7.941406.902344-8.167969-13.992187-23.410157-22.992187-39.886719-22.992187-1.753907 0-3.488281.109375-5.199219.308593v-251.054687l110.890625-85.804687 110.894531 85.804687v25.703125c0 4.144531 3.355469 7.5 7.5 7.5 4.140625 0 7.5-3.355469 7.5-7.5v-14.097656l20.8125 16.101562c1.738282 1.347656 3.90625 2.085938 6.101563 2.085938 3.128906 0 6.015625-1.421875 7.917969-3.898438.027343-.035156.054687-.074218.082031-.109375l11.648437-15.734375.074219-.09375c.769531-.964844 2.8125-3.523437 2.335937-7.269531-.347656-2.644531-1.699218-4.992187-3.792968-6.605469l-158.890625-122.941406c-3.523438-2.722656-7.734375-4.164062-12.183594-4.164062s-8.660156 1.441406-12.1875 4.167968l-43.625 33.753906v-9.453124c5.898437-1 10.40625-6.132813 10.40625-12.308594v-14.996094c0-6.894531-5.609375-12.5-12.5-12.5h-60.777344c-6.890625 0-12.5 5.605469-12.5 12.5v14.992188c0 6.179687 4.507813 11.308593 10.40625 12.3125v59.71875l-50.28125 38.90625c-2.09375 1.609374-3.480469 4.039062-3.8085935 6.636718-.3437495 2.640625.3593745 5.257813 1.9843745 7.375l12.160157 15.816406c1.90625 2.476563 4.789062 3.894532 7.914062 3.894532 2.195313 0 4.359375-.738282 6.109375-2.085938l20.808594-16.101562v243.859375c-11.90625 5.859375-21.074219 16.71875-24.480469 29.964843-11.308593 4.359376-19.078125 15.34375-19.078125 27.8125 0 1.375.097656 2.726563.277344 4.054688-2.378906 2.277344-3.863281 5.472656-3.863281 9.015625v22.960937c0 6.890626 5.605469 12.5 12.5 12.5h470.269531c4.144531 0 7.5-3.359374 7.5-7.5 0-4.144531-3.355469-7.5-7.5-7.5h-21.738281v-144.664062l20.816406 16.105469c1.738281 1.34375 3.90625 2.085937 6.101563 2.085937 3.128906 0 6.015624-1.421875 7.917968-3.902344.027344-.035156.054688-.070312.082032-.105468l11.652343-15.738282.078125-.097656c.765625-.960937 2.804688-3.519531 2.332032-7.261718zm-348.1875 79.320312c17.6875 0 32.078124 14.390625 32.078124 32.074219 0 3.207031-.484374 6.300781-1.363281 9.222656h-42.78125c.324219-1.90625.503907-3.867187.503907-5.867187 0-10.175782-4.355469-19.347657-11.289063-25.769532 5.929687-6.019531 14.132813-9.660156 22.851563-9.660156zm-104.972657-399.875h55.777344v9.992188h-55.777344zm45.371094 24.992188v20.871093l-34.964844 27.054688v-47.925781zm-81.085937 115.132812-6.050782-7.871094 154.9375-119.886718c.886719-.683594 1.898438-1.03125 3.011719-1.03125s2.125.347656 3.007813 1.027343l154.726562 119.722657-5.90625 7.980468-147.238281-113.925781c-2.703125-2.089844-6.476563-2.089844-9.179688 0zm191.523437 334.007812h-197.660156v-17.960937h69.085937c4.140625 0 7.5-3.355469 7.5-7.5s-3.359375-7.5-7.5-7.5h-65.480468c-.007813-.191406-.019532-.378906-.019532-.570313 0-7.074218 5.027344-13.1875 11.960938-14.53125 3.136718-.609374 5.542968-3.136718 5.996094-6.296874 2.1875-15.199219 15.429687-26.664063 30.800781-26.664063 12.765625 0 24.4375 8.011719 29.042969 19.933594.75 1.945312 2.273437 3.488281 4.210937 4.265625 1.9375.773437 4.105469.703125 5.992187-.1875 2.695313-1.273438 5.585938-1.921875 8.582032-1.921875 11.078125 0 20.089844 9.019531 20.089844 20.109375 0 2.042968-.320313 4.007812-.890626 5.863281h-14.285156c-4.144531 0-7.5 3.359375-7.5 7.5 0 4.144531 3.355469 7.5 7.5 7.5h92.574219zm274.3125-143.558593-147.238281-113.921875c-2.703125-2.09375-6.476563-2.09375-9.179688 0l-147.3125 113.980468-6.050781-7.871093 154.941406-119.882813c.886719-.6875 1.898438-1.035156 3.011719-1.035156 1.109375 0 2.125.347656 3.007812 1.03125l154.726563 119.71875zm0 0"></path></svg>
+                                    <span class="ms-4">Residential Faculty Zone</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="16.875" viewBox="0 0 30 16.875"><g transform="translate(0 -14)"><path d="M27.987,21.743l-.133-.019a3.261,3.261,0,0,1-2.161-1.28l-4.131-5.507A2.355,2.355,0,0,0,19.688,14H2.344A2.347,2.347,0,0,0,0,16.344V26.656A2.347,2.347,0,0,0,2.344,29h.79a3.274,3.274,0,0,0,5.92,0H20.946a3.274,3.274,0,0,0,5.92,0h.79A2.347,2.347,0,0,0,30,26.656V24.064a2.356,2.356,0,0,0-2.013-2.32Zm1.075,3.507h-.469a1.409,1.409,0,0,1-1.326-.937h1.795ZM.938,24.313a.469.469,0,0,1,.469.469v.938a.469.469,0,0,1-.469.469Zm5.156,5.625a2.344,2.344,0,1,1,2.344-2.344,2.344,2.344,0,0,1-2.344,2.344Zm17.813,0a2.344,2.344,0,1,1,2.344-2.344,2.344,2.344,0,0,1-2.344,2.344Zm3.75-1.875H27.15a3.281,3.281,0,1,0-6.487,0H9.337a3.281,3.281,0,1,0-6.487,0H2.344a1.4,1.4,0,0,1-1.322-.946,1.406,1.406,0,0,0,1.322-1.4v-.937A1.406,1.406,0,0,0,.938,23.375V16.344a1.406,1.406,0,0,1,1.406-1.406H19.688a1.414,1.414,0,0,1,1.125.563l4.131,5.507a4.192,4.192,0,0,0,2.779,1.645l.133.019a1.409,1.409,0,0,1,1.022.7H26.719a.469.469,0,0,0-.469.469,2.347,2.347,0,0,0,2.344,2.344h.469v.469a1.406,1.406,0,0,1-1.406,1.406Z" fill="#2f2d51"></path><path d="M39.883,19.531a.469.469,0,1,0-.75.563l1.336,1.781a.469.469,0,0,1-.375.75H35.406a.469.469,0,0,1-.469-.469v-3.75a.469.469,0,0,1,.469-.469h1.875a.469.469,0,0,1,.375.188l.422.563a.469.469,0,0,0,.75-.562l-.422-.562A1.413,1.413,0,0,0,37.281,17H35.406A1.406,1.406,0,0,0,34,18.406v3.75a1.406,1.406,0,0,0,1.406,1.406h4.688a1.406,1.406,0,0,0,1.125-2.25Z" transform="translate(-18.063 -1.594)" fill="#2f2d51"></path><path d="M15.188,17H4.406A1.406,1.406,0,0,0,3,18.406v3.75a1.406,1.406,0,0,0,1.406,1.406H15.188a1.406,1.406,0,0,0,1.406-1.406v-3.75A1.406,1.406,0,0,0,15.188,17ZM3.938,22.156v-3.75a.469.469,0,0,1,.469-.469H7.219v4.688H4.406A.469.469,0,0,1,3.938,22.156Zm4.219-4.219h3.281v4.688H8.156Zm7.5,4.219a.469.469,0,0,1-.469.469H12.375V17.938h2.813a.469.469,0,0,1,.469.469Z" transform="translate(-1.594 -1.594)" fill="#2f2d51"></path><path d="M49.406,40a1.406,1.406,0,1,0,1.406,1.406A1.406,1.406,0,0,0,49.406,40Zm0,1.875a.469.469,0,1,1,.469-.469A.469.469,0,0,1,49.406,41.875Z" transform="translate(-25.5 -13.813)" fill="#2f2d51"></path><path d="M11.406,40a1.406,1.406,0,1,0,1.406,1.406A1.406,1.406,0,0,0,11.406,40Zm0,1.875a.469.469,0,1,1,.469-.469A.469.469,0,0,1,11.406,41.875Z" transform="translate(-5.313 -13.813)" fill="#2f2d51"></path><path d="M37.406,32h-.937a.469.469,0,0,0,0,.938h.938a.469.469,0,0,0,0-.937Z" transform="translate(-19.125 -9.563)" fill="#2f2d51"></path><path d="M28.469,32a.469.469,0,0,0-.469.469v.469a.469.469,0,0,0,.938,0v-.469A.469.469,0,0,0,28.469,32Z" transform="translate(-14.875 -9.563)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Transport</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"><path d="M23.573,12.26a.7.7,0,0,1-1.033.954,10.256,10.256,0,0,0-15.08,0,.7.7,0,0,1-1.034-.954,11.654,11.654,0,0,1,17.147,0ZM15,11.948a8.228,8.228,0,0,0-6.143,2.76.7.7,0,1,0,1.051.934,6.811,6.811,0,0,1,10.185,0,.7.7,0,0,0,1.051-.934A8.229,8.229,0,0,0,15,11.948Zm0,3.445a4.755,4.755,0,0,0-3.723,1.785.7.7,0,0,0,1.1.881,3.367,3.367,0,0,1,5.253,0,.7.7,0,1,0,1.1-.881A4.755,4.755,0,0,0,15,15.393Zm1.329,4.774A1.329,1.329,0,1,1,15,18.838,1.331,1.331,0,0,1,16.329,20.167ZM30,15A15,15,0,1,1,15,0,15.017,15.017,0,0,1,30,15Zm-1.406,0A13.594,13.594,0,1,0,15,28.594,13.609,13.609,0,0,0,28.594,15Z" fill="#2f2d51"></path></svg>
+                                    <span class="ms-4">WiFi</span>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-6 my-3">
+                                <div class="d-flex align-items-center">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22.743" height="30" viewBox="0 0 22.743 30"><g transform="translate(-56)"><path d="M77.22,0h-19.7A1.524,1.524,0,0,0,56,1.523V28.477A1.524,1.524,0,0,0,57.523,30h19.7a1.524,1.524,0,0,0,1.523-1.523V1.523A1.524,1.524,0,0,0,77.22,0ZM56.972,6.156h20.8v20.8h-20.8Zm20.8-4.633V5.184H64.229V.972H77.22A.551.551,0,0,1,77.771,1.523ZM57.523.972h5.734V5.184H56.972V1.523A.551.551,0,0,1,57.523.972Zm19.7,28.056h-19.7a.551.551,0,0,1-.551-.551v-.551h20.8v.551A.551.551,0,0,1,77.22,29.028Z" fill="#2f2d51"></path><path d="M127.225,128a7.225,7.225,0,1,0,7.225,7.225A7.233,7.233,0,0,0,127.225,128Zm0,13.477a6.253,6.253,0,1,1,6.253-6.253A6.26,6.26,0,0,1,127.225,141.477Z" transform="translate(-59.853 -119.706)" fill="#2f2d51"></path><path d="M209.523,27.045A1.523,1.523,0,1,0,208,25.523,1.524,1.524,0,0,0,209.523,27.045Zm0-2.073a.551.551,0,1,1-.551.551A.551.551,0,0,1,209.523,24.972Z" transform="translate(-142.151 -22.445)" fill="#2f2d51"></path><path d="M88.486,56.972H91.6a.486.486,0,0,0,0-.972h-3.11a.486.486,0,0,0,0,.972Z" transform="translate(-29.927 -52.371)" fill="#2f2d51"></path><path d="M272.486,40.972h1.555a.486.486,0,0,0,0-.972h-1.555a.486.486,0,0,0,0,.972Z" transform="translate(-202.004 -37.408)" fill="#2f2d51"></path><path d="M328.486,40.972h1.555a.486.486,0,0,0,0-.972h-1.555a.486.486,0,0,0,0,.972Z" transform="translate(-254.376 -37.408)" fill="#2f2d51"></path><path d="M157.151,160a5.151,5.151,0,1,0,5.151,5.151A5.157,5.157,0,0,0,157.151,160Zm0,9.33a4.179,4.179,0,1,1,4.179-4.179A4.184,4.184,0,0,1,157.151,169.33Z" transform="translate(-89.78 -149.633)" fill="#2f2d51"></path></g></svg>
+                                    <span class="ms-4">Laundry</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End Tab :: Campus -->
+        <!-- Tab :: Gallery -->
+        <div class="tab-content" id="Gallery">
+            789
+        </div><!-- End Tab :: Gallery -->
+        <!-- Tab :: Reviews -->
+        <div class="tab-content" id="Reviews">
+            789
+        </div><!-- End Tab :: Reviews -->
+    </div><!-- End Tab Bar View -->
+</div>
+
+<script>
+    /********************************
+    * About College TabBar View
+    ********************************/
+
+    // Open Default Tab...
+    document.getElementById("defaultOpenTab").click();
+
+    function openTabView(tabName, element) {
+        var tabLinks, tabContent;
+
+        tabLinks = document.getElementsByClassName("tab-link");
+        for (i = 0; i < tabLinks.length; i++) {
+            tabLinks[i].style.borderBottom = "";
+            tabLinks[i].style.color = "";
+            tabLinks[i].style.fontWeight = "";
+        }
+
+        tabContent = document.getElementsByClassName("tab-content");
+        for (i = 0; i < tabContent.length; i++) {
+            tabContent[i].style.display = "none";
+        }
+
+        document.getElementById(tabName).style.display = "block";
+        element.style.borderBottom = "5px solid rgb(255,169,72)";
+        element.style.color = "#f5a041";
+        element.style.fontWeight = "600";
+    }
+</script>
+
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

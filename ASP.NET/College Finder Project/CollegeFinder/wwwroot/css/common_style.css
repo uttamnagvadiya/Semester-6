@@ -1,0 +1,379 @@
+﻿/*--------------------------------------------------------------
+# Back to top button
+--------------------------------------------------------------*/
+.back-to-top {
+    position: fixed;
+    visibility: hidden;
+    opacity: 0;
+    right: 15px;
+    bottom: 15px;
+    z-index: 99999;
+    background: #001c55;
+    width: 40px;
+    height: 40px;
+    border-radius: 24px;
+    transition: all 0.4s;
+}
+
+    .back-to-top i {
+        font-size: 30px;
+        color: #fff;
+        line-height: 0;
+    }
+
+    .back-to-top.active {
+        visibility: visible;
+        opacity: 1;
+    }
+
+
+/*-----------------------------
+      List of Colleges
+-----------------------------*/
+
+.list-item-card .card:hover {
+    border: 1px solid #001c55;
+    border-radius: 25px;
+    cursor: pointer;
+    transform: scale(0.99);
+    box-shadow: 0 .5rem 1rem #00000030;
+}
+
+.college-card .college-logo-image img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.college-card .card-title,
+.course-card .card-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #023e8a;
+}
+
+.college-card .college-approval .label,
+.college-card .college-type .label,
+.college-card .college-city .label,
+.course-card .course-duration .label,
+.course-card .course-fees .label {
+    font-size: 13px;
+    color: #717171;
+}
+
+.college-card .college-location .college-address,
+.course-card .course-definition {
+    color: #415a77;
+    font-size: 13px;
+    text-align: justify;
+}
+
+.college-card .college-approval .approval,
+.college-card .college-type .type,
+.college-card .college-city .city,
+.course-card .course-duration .duration,
+.course-card .course-fees .fees {
+    color: #001c55;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+/*------- Filters -------*/
+
+.filters-list {
+    height: 90vh;
+    position: sticky;
+    top: 70px;
+}
+
+    .filters-list::-webkit-scrollbar {
+        display: none;
+    }
+
+.filter-card .card-title {
+    color: #001c55;
+    font-weight: 700;
+}
+
+.filter-card .filter-search input {
+    padding: 7px;
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #cfd2cd;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none;
+    margin: 8px 0;
+    font-size: 15px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+    .filter-card .filter-search input:focus {
+        border: 1px solid #000;
+        box-shadow: none;
+    }
+
+.filter-card .filter-item-list .form-check-label {
+    font-size: 13px;
+}
+
+.filter-card .filter-item-list .form-check-input,
+.college-card .college-location i {
+    border-color: #001c55;
+    color: #001c55;
+}
+
+.filter-card .filter-item-list {
+    height: 23vh;
+    overflow: auto;
+    scroll-behavior: smooth;
+}
+
+    .filter-card .filter-item-list::-webkit-scrollbar {
+        width: 5px;
+    }
+
+    .filter-card .filter-item-list::-webkit-scrollbar-track {
+        background: #001c5520;
+        border-radius: 20px;
+    }
+
+    .filter-card .filter-item-list::-webkit-scrollbar-thumb {
+        background: #001c55cf;
+        border-radius: 25px;
+    }
+
+
+/*-----------------------------
+      List of Courses
+-----------------------------*/
+.course-card .course-image img {
+    height: 160px;
+    width: 230px;
+    object-fit: fill;
+    border-radius: 10px;
+}
+
+
+/*-----------------------------
+      Stream Details
+-----------------------------*/
+
+.stream-description-card .stream-card-title {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 20%, rgba(0,28,85,1) 40%, rgba(0,28,85,1) 60%, rgba(255,255,255,1) 80%);
+    color: #fff;
+}
+
+
+/*-----------------------------
+    About College Details
+-----------------------------*/
+
+.about-college-details .card-header {
+    background: #001c55;
+    color: #fff;
+}
+
+.about-college-details .college-logo .logo-box {
+    width: 100px;
+    height: 100px;
+    background: #fff;
+    margin-right: 25px;
+    border-radius: 15px;
+    object-fit: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+    .about-college-details .college-logo .logo-box img {
+        width: 85px;
+        height: 85px;
+    }
+
+.about-college-details .college-header-info .d-lg-flex {
+    width: 50%;
+}
+
+.about-college-details .college-header-info .college-approval {
+    font-size: 12px;
+    color: #c5c3e5;
+}
+
+.about-college-details .tab-bar {
+    background: #001c55;
+    color:#fff;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+    .about-college-details .tab-bar ul > li > button {
+        height: 6vh;
+        padding: 0 30px;
+        margin: 0 5px;
+        border: none;
+        background: transparent;
+        color:#fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s ease;
+    }
+
+        .about-college-details .tab-bar ul > li > button:hover {
+            color: #f5a041;
+            cursor: pointer;
+        }
+
+    .about-college-details .tab-bar ul::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .about-college-details .tab-bar ul::-webkit-scrollbar-track {
+        background: #f5a04188;
+        border-radius: 20px;
+    }
+
+    .about-college-details .tab-bar ul::-webkit-scrollbar-thumb {
+        background: #f5a041;
+        border-radius: 25px;
+    }
+
+.about-college-details .tab-view .tab-content {
+    display: none;
+}
+
+.college-overview .parameter,
+.college-overview .details {
+    background: #e9ecef77;
+}
+.college-overview .parameter-info{
+    color: #001c55cc;
+}
+
+.college-overview .parameter,
+.college-overview .details,
+.college-overview .parameter-label,
+.college-overview .parameter-info {
+    border: 1px solid #001c5522;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    cursor:default;
+}
+
+/*-----------------------------
+      Data Table
+-----------------------------*/
+.datatable-dropdown label {
+    text-transform: capitalize;
+}
+
+.datatable-input {
+    padding: 7px 12px;
+    border-radius: 7px;
+    width: 450px;
+    border: 1px solid #001c5555;
+}
+
+.datatable-selector {
+    padding: 7px;
+    margin: 0 5px;
+    border-radius: 7px;
+    border: 2px solid #001c5555;
+}
+
+.datatable-table > thead > tr > th {
+    vertical-align: bottom;
+    text-align: left;
+    border-bottom: 3px solid #000;
+    background: #e9ecef;
+}
+
+    .datatable-table > thead > tr > th button {
+        background: transparent;
+    }
+
+.datatable-pagination .datatable-active button {
+    background-color: #001c5533;
+    cursor: default;
+}
+
+.datatable-pagination-list button {
+    color: inherit;
+    border: 0;
+    background-color: inherit;
+    cursor: pointer;
+    text-align: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+}
+
+.datatable-sorter::before {
+    border-top: 5px solid #001c55;
+    bottom: 0px;
+}
+
+.datatable-sorter::before,
+.datatable-sorter::after {
+    content: "";
+    height: 0;
+    width: 0;
+    position: absolute;
+    right: 4px;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    opacity: 0.4;
+}
+
+.datatable-sorter::after {
+    border-bottom: 5px solid #001c55;
+    border-top: 5px solid transparent;
+    top: 0px;
+}
+
+
+
+/*-----------------------------
+      Media Query
+-----------------------------*/
+@media (max-width: 991px) {
+    .datatable-input {
+        width: 265px;
+        margin: 15px auto;
+    }
+
+    .course-card .course-image img {
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+
+    .college-card .college-logo-image img {
+        width: 60px;
+        height: 60px;
+        object-fit: contain;
+    }
+
+    .college-list .college-card .college-location,
+    .course-card .course-definition {
+        font-size: 15px;
+    }
+
+    .about-college-details .college-header-info .card-title {
+        font-size: 20px;
+    }
+
+    .about-college-details .college-header-info .d-block {
+        width: 100%;
+    }
+
+    .about-college-details .tab-bar ul > li > button {
+        height: 5vh;
+        padding: 0 25px;
+        margin-bottom: 5px;
+    }
+}

@@ -1,0 +1,102 @@
+﻿@{
+    Layout = "_Layout_Admin";
+}
+@model CollegeFinder.Areas.MST_Location.Models.MST_LocationViewModel
+
+<div class="container-fluid">
+    <div class="col-12">
+        <!-- New Country Form -->
+        <div class="new-record-section mb-3" id="new-country-section">
+            <div class="container" id="country-registration">
+                <div class="card">
+                    <div class="card-body pb-0">
+                        <h4 class="card-title">Country Registration Form</h4>
+                        <form method="post" class="m-lg-4 my-3" asp-area="MST_Location" asp-controller="LOC_Country" asp-action="Save">
+                            @*@Html.HiddenFor(@Model => @Model.CountryModel.CountryID)*@
+                            <input type="hidden" asp-for="@Model.CountryModel.CountryID" name="CountryID" />
+                            <div class="row justify-content-center">
+                                <div class="col-lg-6 col-12">
+                                    <!-- Country Name Field -->
+                                    <div class="form-field mb-3">
+                                        <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Country Name :</label>
+                                        <input type="text" class="input-field-box country-name form-control" id="countryName" placeholder="Enter country name..." asp-for="@Model.CountryModel.CountryName" name="CountryName" />
+                                        <span class="form-text text-danger" asp-validation-for="@Model.CountryModel.CountryName"></span>
+                                    </div><!-- End Country Name Field -->
+                                </div>
+                                <div class="col-lg-6 col-12">
+                                    <!-- Country Code Field -->
+                                    <div class="form-field mb-3">
+                                        <label class="input-field-label form-label"><span class="text-danger mx-1"></span>Country Code :</label>
+                                        <input type="text" class="input-field-box country-code form-control" id="countryCode" placeholder="Enter country code..." asp-for="@Model.CountryModel.CountryCode" name="CountryCode" />
+                                    </div><!-- End Country Code Field -->
+                                </div>
+                            </div>
+                            <!-- Form Buttons -->
+                            <div class="form-buttons">
+                                <div class="row">
+                                    <div class="col d-flex">
+                                        <button type="submit" class="btn btn-primary me-2">Submit</button>
+                                        <button type="reset" class="btn btn-secondary">Reset</button>
+                                    </div>
+                                    <div class="col text-end">
+                                        <button type="submit" class="btn btn-outline-danger mx-lg-3" onClick="history.go(-1); return false;">Cancel</button>
+                                    </div>
+                                </div>
+                            </div><!-- End Form Buttons -->
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div><!-- End New Country Form -->
+        <!-- Country List -->
+        <div class="country-list-section">
+            <div class="card shadow border-0">
+                <div class="card-body pb-0">
+                    <div class="display-list overflow-auto">
+                        <table class="table table-hover datatable">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Country Name</th>
+                                    <th scope="col">Country Code</th>
+                                    <th scope="col">Created Date</th>
+                                    <th scope="col">Modified Date</th>
+                                    <th scope="col" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                }
+                                @foreach (var country in Model.CountryModelsList)
+                                {
+                                    <tr>
+                                        <th><strong>@i</strong></th>
+                                        <td>@country.CountryName.ToString()</td>
+                                        <td>@country.CountryCode?.ToString()</td>
+                                        <td>@Convert.ToDateTime(country.CreatedDate).ToString("dd MMM, yyyy")</td>
+                                        <td>@Convert.ToDateTime(country.ModifiedDate).ToString("dd MMM, yyyy")</td>
+                                        <td>
+                                            <div class="d-flex">
+                                                <a class="btn btn-primary shadow" asp-area="MST_Location" asp-controller="LOC_Country" asp-action="Update" asp-route-countryId="@country.CountryID"><i class="bi-pencil-square"></i></a>
+                                                <a class="btn btn-danger shadow ms-2" asp-area="MST_Location" asp-controller="LOC_Country" asp-action="Delete" asp-route-CountryID="@country.CountryID"><i class="bi-trash"></i></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    i = i + 1;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Country List -->
+    </div>
+</div>
+@section Scripts{
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

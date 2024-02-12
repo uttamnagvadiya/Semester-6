@@ -1,0 +1,18 @@
+﻿@using CollegeFinder.BAL;
+@{
+    Layout = CommonVariables.IsAdmin() == true ? "_Layout_Admin" : "_Layout";
+}
+@model CollegeFinder.Areas.INS_Streams.Models.INS_StreamModel
+
+<div class="container-fluid">
+    <div class="col-12">
+        <div class="stream-description-card card shadow border-0">
+            <div class="card-body">
+                <h2 class="stream-card-title card-title text-center my-4">@Model.StreamName.ToString()</h2>
+                <div class="card-text">
+                    @Html.Raw(Model.StreamDescription)
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

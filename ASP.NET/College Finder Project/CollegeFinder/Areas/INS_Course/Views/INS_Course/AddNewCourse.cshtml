@@ -1,0 +1,106 @@
+﻿@{
+    Layout = "_Layout_Admin";
+}
+@model CollegeFinder.Areas.INS_Course.Models.INS_CourseModel
+
+<div class="container">
+    <div class="new-course-register">
+        <div class="add-course-form">
+            <div class="card border-0 shadow">
+                <div class="card-header pb-0" style="color:#001c55">
+                    <h4 class="card-title fw-bold">Course Registration Form</h4>
+                </div>
+                <div class="card-body">
+                    <form method="post" asp-area="INS_Course" asp-controller="INS_Course" asp-action="Save">
+                        <input type="hidden" asp-for="CourseID" />
+                        <div class="row">
+                            <div class="col-lg-6 col-12">
+                                <!-- Course Logo Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Logo :</label>
+                                    <input type="text" class="input-field-box course-logo form-control" id="courseLogo" placeholder="Enter course logo link..." asp-for="CourseLogo" name="CourseLogo" />
+                                    <span class="form-text text-danger" asp-validation-for="CourseLogo"></span>
+                                </div><!-- End Course Logo Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- Select Stream Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Select Stream :</label>
+                                    <select class="form-select" aria-label="Default select example" asp-for="StreamID" name="StreamID" asp-items="@(new SelectList(ViewBag.StreamList, "StreamID", "StreamName"))">
+                                        <option selected disabled>Select Stream</option>
+                                    </select>
+                                    <span class="form-text text-danger" asp-validation-for="StreamID"></span>
+                                </div><!-- End Select Stream Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- Course Name Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Name :</label>
+                                    <input type="text" class="input-field-box course-name form-control" id="courseName" placeholder="Enter course name..." asp-for="CourseName" name="CourseName" />
+                                    <span class="form-text text-danger" asp-validation-for="CourseName"></span>
+                                </div><!-- End Course Name Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- Course Short Name Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Short Name :</label>
+                                    <input type="text" class="input-field-box course-short-name form-control" id="courseShortName" placeholder="Enter course short name..." asp-for="CourseShortName" name="CourseShortName" />
+                                    <span class="form-text text-danger" asp-validation-for="CourseShortName"></span>
+                                </div><!-- End Course Short Name Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- Course Duration Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Duration :</label>
+                                    <input type="text" class="input-field-box course-duration form-control" id="courseDuration" placeholder="Enter course duration..." asp-for="CourseDuration" name="CourseDuration" />
+                                    <span class="form-text text-danger" asp-validation-for="CourseDuration"></span>
+                                </div><!-- End Course Duration Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- Course Fees Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Fees :</label>
+                                    <input type="text" class="input-field-box course-fees form-control" id="courseFees" placeholder="Enter course fees..." asp-for="CourseFees" name="CourseFees" />
+                                    <span class="form-text text-danger" asp-validation-for="CourseFees"></span>
+                                </div><!-- End Course Fees Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- About Course Definition Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Definition :</label>
+                                    <textarea class="input-field-box course-definition form-control" id="courseDefinition" placeholder="Enter courses definition..." rows="3" asp-for="CourseDefinition" name="CourseDefinition"></textarea>
+                                    <span class="form-text text-danger" asp-validation-for="CourseDefinition"></span>
+                                </div><!-- End Course Definition Field -->
+                            </div>
+                            <div class="col-lg-6 col-12">
+                                <!-- About Course Description Field -->
+                                <div class="form-field mb-4">
+                                    <label class="input-field-label form-label"><span class="text-danger mx-1">*</span>Course Description :</label>
+                                    <textarea class="input-field-box course-description form-control" id="courseDescription" placeholder="Enter course description..." rows="3" asp-for="CourseDescription" name="CourseDescription"></textarea>
+                                    <span class="form-text text-danger" asp-validation-for="CourseDescription"></span>
+                                </div><!-- End Course Description Field -->
+                            </div>
+                        </div>
+                        <!-- Is Yearly Field -->
+                        <div class="form-field mb-4">
+                            <input class="form-check-input" type="checkbox" id="flexCheckDefault" asp-for="IsYearly" name="IsYearly">
+                            <label class="form-check-label input-field-label form-label ms-2">Is Yearly</label>
+                        </div><!-- End Is Yearly Field -->
+                        <!-- Form Buttons -->
+                        <div class="form-buttons">
+                            <div class="row">
+                                <div class="col">
+                                    <button type="submit" class="btn btn-primary me-lg-3">Submit</button>
+                                    <button type="reset" class="btn btn-secondary">Reset</button>
+                                </div>
+                                <div class="col text-end">
+                                    <button type="submit" class="btn btn-outline-danger mx-lg-3" onClick="history.go(-1); return false;">Cancel</button>
+                                </div>
+                            </div>
+                        </div><!-- End Form Buttons -->
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

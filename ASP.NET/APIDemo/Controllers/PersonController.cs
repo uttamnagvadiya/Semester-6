@@ -97,5 +97,16 @@ namespace APIDemo.Controllers
             return NotFound("Record not updated!");
         }
         #endregion
+
+        [HttpPost]
+        public IActionResult UserPost([FromBody] UserModel userModel)
+        {
+            if (ModelState.IsValid)
+            {
+                    return Ok("Data validated successfully!");
+            }
+            return NotFound("Data not validate!");
+        }
+
     }
 }

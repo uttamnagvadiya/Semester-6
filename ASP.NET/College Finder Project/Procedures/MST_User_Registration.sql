@@ -10,7 +10,6 @@ SELECT
 	 [dbo].[MST_User_Registration].[UserID]
 	,[dbo].[MST_User_Registration].[Username]
     ,[dbo].[MST_User_Registration].[Email]
-	,[dbo].[MST_User_Registration].[Password]
 	,[dbo].[MST_User_Registration].[IsAdmin]
 	,[dbo].[MST_User_Registration].[IsActive]
 
@@ -28,7 +27,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_MST_USER_REGISTRATION_INSERT_RECORD]
 @Email		NVARCHAR(MAX),
 @Password	NVARCHAR(MAX),
 @IsAdmin	BIT = 0,
-@IsActive	BIT = 0
+@IsActive	BIT = 1
 
 AS
 INSERT INTO [dbo].[MST_User_Registration]
@@ -61,7 +60,7 @@ CREATE OR ALTER PROCEDURE [dbo].[PR_MST_USER_REGISTRATION_UPDATE_RECORD]
 @Username	NVARCHAR(MAX),
 @Email		NVARCHAR(MAX),
 @Password	NVARCHAR(MAX),
-@IsActive	BIT = 0
+@IsActive	BIT = 1
 
 AS
 UPDATE [dbo].[MST_User_Registration]

@@ -1,0 +1,117 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = CollegeFinder
+build_property.RootNamespace = CollegeFinder
+build_property.ProjectDir = G:\Github\Semester-6\ASP.NET\College Finder Project\CollegeFinder\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = G:\Github\Semester-6\ASP.NET\College Finder Project\CollegeFinder
+build_property._RazorSourceGeneratorDebug = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_College/Views/INS_College/AboutCollege.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvbGxlZ2VcVmlld3NcSU5TX0NvbGxlZ2VcQWJvdXRDb2xsZWdlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_College/Views/INS_College/AddNewCollege.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvbGxlZ2VcVmlld3NcSU5TX0NvbGxlZ2VcQWRkTmV3Q29sbGVnZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_College/Views/INS_College/CollegeList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvbGxlZ2VcVmlld3NcSU5TX0NvbGxlZ2VcQ29sbGVnZUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_College/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvbGxlZ2VcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_Course/Views/INS_Course/CourseList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvdXJzZVxWaWV3c1xJTlNfQ291cnNlXENvdXJzZUxpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_Course/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX0NvdXJzZVxWaWV3c1xfVmlld0ltcG9ydHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_Streams/Views/INS_Streams/AboutStream.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX1N0cmVhbXNcVmlld3NcSU5TX1N0cmVhbXNcQWJvdXRTdHJlYW0uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/INS_Streams/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSU5TX1N0cmVhbXNcVmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Admin/Views/MST_Admin/AdminDashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0FkbWluXFZpZXdzXE1TVF9BZG1pblxBZG1pbkRhc2hib2FyZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Admin/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0FkbWluXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Location/Views/LOC_City/LOC_City.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0xvY2F0aW9uXFZpZXdzXExPQ19DaXR5XExPQ19DaXR5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Location/Views/LOC_Country/LOC_Country.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0xvY2F0aW9uXFZpZXdzXExPQ19Db3VudHJ5XExPQ19Db3VudHJ5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Location/Views/LOC_State/LOC_State.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0xvY2F0aW9uXFZpZXdzXExPQ19TdGF0ZVxMT0NfU3RhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Location/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX0xvY2F0aW9uXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Users/Views/MST_User/SignIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1VzZXJzXFZpZXdzXE1TVF9Vc2VyXFNpZ25Jbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Users/Views/MST_User/SignUp.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1VzZXJzXFZpZXdzXE1TVF9Vc2VyXFNpZ25VcC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Areas/MST_Users/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcTVNUX1VzZXJzXFZpZXdzXF9WaWV3SW1wb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Shared/_Layout_Admin.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfQWRtaW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Shared/_Layout_User.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXRfVXNlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[G:/Github/Semester-6/ASP.NET/College Finder Project/CollegeFinder/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-f0y5jsbd20
